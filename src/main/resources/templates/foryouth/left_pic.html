@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/foryouth/enterMain :: setContent(~{this::content} )}">
+    <div class="left" th:fragment="left_pic">
+        <img th:src="@{/images/login/login_left_img.png}"/>
+    </div>
+</th:block>
+</html>

@@ -1,0 +1,296 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Signika&display=swap');
+
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+main {
+    flex: 1;
+}
+
+p {
+    margin: 0;
+}
+
+.main_box {
+    width: 1920px;
+    height: 1080px;
+    display: grid;
+    grid-template-columns: 1200px 720px;
+    place-items: center;
+}
+
+.right {
+    width: 720px;
+    height: 1080px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login_box {
+    width: 500px;
+    height: 660px;
+    display: grid;
+    grid-template-rows: 90px 380px 190px;
+    place-items: center;
+}
+
+.top {
+    width: 500px;
+    height: 90px;
+    display: grid;
+    grid-template-rows: 60px 30px;
+}
+
+.top_text1 {
+    width: 500px;
+    height: 60px;
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "GRAD" 0;
+    font-size: 35pt;
+}
+
+.top_text2 {
+    width: 500px;
+    height: 30px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18pt;
+}
+
+.middle {
+    width: 500px;
+    height: 380px;
+    display: grid;
+    grid-template-rows: 280px 100px;
+}
+
+.login_form {
+    width: 500px;
+    height: 280px;
+    display: grid;
+    grid-template-rows: 40px 30px 50px 30px 50px 80px;
+}
+
+.id_text, .pwd_text  {
+    width: 500px;
+    height: 30px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12pt;
+}
+
+.id_input, .pwd_input {
+    width: 500px;
+    height: 50px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+input {
+    width: 450px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+input:focus {
+    border-bottom: 2px solid black;
+}
+
+.login_button_div {
+    width: 500px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.login_button {
+    width: 450px;
+    height: 35px;
+    border: 1px solid #c0e2f2;
+    border-radius: 10px;
+}
+
+.login_button_text {
+    width: 450px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+.login_a {
+    text-decoration: none;
+    color: black;
+}
+
+.login_a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.join_and_find {
+    width: 450px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    place-items: center;
+}
+
+.join {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+.find_id {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-left: 1px solid #C0C0C0;
+    border-right: 1px solid #C0C0C0;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+.find_pwd {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+.join_a {
+    text-decoration: none;
+    color: black;
+}
+
+.join_a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.find_id_a {
+    text-decoration: none;
+    color: black;
+}
+
+.find_id_a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.find_pwd_a {
+    text-decoration: none;
+    color: black;
+}
+
+.find_pwd_a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.bottom {
+    width: 500px;
+    height: 190px;
+    display: grid;
+    grid-template-rows: 30px 160px;
+}
+
+.bottom_text {
+    width: 450px;
+    height: 30px;
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+}
+
+.bottom_text_line {
+    width: 150px;
+    height: 15px;
+    border-bottom: 1px solid #C0C0C0;
+}
+
+.sns_login_text {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+.sns_login {
+    width: 450px;
+    height: 160px;
+    display: grid;
+    grid-template-rows: 80px 80px;
+}
+
+.naver_button {
+    width: 450px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.kakao_button {
+    width: 450px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+
