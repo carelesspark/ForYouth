@@ -1,0 +1,201 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Signika&display=swap');
+
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+main {
+    flex: 1;
+}
+
+p {
+    margin: 0;
+}
+
+.main_box {
+    width: 1920px;
+    height: 1080px;
+    display: grid;
+    grid-template-columns: 1200px 720px;
+    place-items: center;
+}
+
+.right {
+    width: 720px;
+    height: 1080px;
+    padding: 50px;
+}
+
+.join_box {
+    width: 620px;
+    height: 880px;
+    display: grid;
+    grid-template-rows: 800px 80px;
+    place-items: center;
+}
+
+.join_info1 {
+    width: 620px;
+    height: 800px;
+    display: grid;
+    grid-template-rows: 100px 700px;
+}
+
+.join_text {
+    width: 620px;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 50px 50px;
+}
+
+.join_text_1 {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30pt;
+}
+
+.join_text_2 {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15pt;
+}
+
+.check_button {
+    width: 620px;
+    height: 700px;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 500px;
+}
+
+.check1, .check2, .check3 {
+    width: 620px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 30px 640px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+.check4 {
+    width: 620px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 30px 590px;
+}
+
+.check4_info {
+    width: 640px;
+    height: 50px;
+    display: grid;
+    grid-template-rows: 25px 25px;
+}
+
+.check4_text_1 {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+.check4_text_2 {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 9pt;
+}
+
+/* 기본 체크박스 숨기기 */
+.custom-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* 체크박스 스타일링 */
+.custom-checkbox .checkmark {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 5px; /* 둥근 모서리 설정 */
+    border: 2px solid #c5c5c5; /* 테두리 설정 */
+    transition: background-color 0.3s, border-color 1s; /* 부드러운 전환 효과 */
+}
+
+/* 체크된 상태에서의 스타일 */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: #ffffff; /* 체크된 상태의 배경색 */
+    border-color: #c5c5c5; /* 체크된 상태의 테두리 색상 */
+}
+
+/* 체크 표시 추가 */
+.custom-checkbox .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 13px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* 체크된 상태에서의 체크 표시 보이기 */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+    display: block;
+}
+
+.join_next_button_div {
+    width: 620px;
+    height: 80px;
+    padding-left: 520px;
+    padding-top: 30px;
+}
+
+.join_next_button {
+    width: 100px;
+    height: 50px;
+    border: 1px solid #c0e2f2;
+    border-radius: 10px;
+}
+
+.join_next_button_text {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15pt;
+}
+
+.next_a {
+    text-decoration: none;
+    color: black;
+}
+
+.next_a:hover {
+    text-decoration: none;
+    color: black;
+}

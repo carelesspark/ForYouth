@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/foryouth/joinMain :: setContent(~{this::content} )}">
+    <div class="right" th:fragment="content">
+        <div class="join_box">
+            <div class="join_info1">
+                <div class="join_text">
+                    <div class="join_text_1">
+                        회원가입
+                    </div>
+                    <div class="join_text_2">
+                        회원가입을 하여 다양한 정보들을 받아보세요!
+                    </div>
+                </div>
+                <div class="check_button">
+                    <div class="check1">
+                        <div>
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div>전체 동의하기</div>
+                    </div>
+                    <div class="check2">
+                        <div>
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div>[필수] ForYouth 이용 약관 동의</div>
+                    </div>
+                    <div class="check3">
+                        <div>
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div>[필수] 개인정보 수집 및 이용 약관 동의</div>
+                    </div>
+                    <div class="check4">
+                        <div>
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="check4_info">
+                            <div class="check4_text_1">[선택] 마케팅 정보 수신 동의</div>
+                            <div class="check4_text_2">이메일, 문자로 이벤트 및 혜택 정보가 제공됩니다.</div>
+                        </div>
+                    </div>
+                    <div class="blank"></div>
+                </div>
+            </div>
+            <div class="join_next_button_div">
+                <a href="#" class="next_a">
+                    <div class="join_next_button">
+                        <div class="join_next_button_text">
+                            다음
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>
