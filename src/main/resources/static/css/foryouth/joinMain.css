@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: auto;
 }
 
@@ -37,17 +37,17 @@ p {
 
 .join_box {
     width: 620px;
-    height: 880px;
+    height: 980px;
     display: grid;
-    grid-template-rows: 800px 80px;
+    grid-template-rows: 900px 80px;
     place-items: center;
 }
 
 .join_info1 {
     width: 620px;
-    height: 800px;
+    height: 900px;
     display: grid;
-    grid-template-rows: 100px 700px;
+    grid-template-rows: 100px 800px;
 }
 
 .join_text {
@@ -73,31 +73,59 @@ p {
 
 .check_button {
     width: 620px;
-    height: 700px;
+    height: 800px;
     display: grid;
-    grid-template-rows: 50px 50px 50px 50px 500px;
+    grid-template-rows: 50px 50px 50px 50px 600px;
 }
 
-.check1, .check2, .check3 {
+.check1 {
     width: 620px;
     height: 50px;
     display: grid;
-    grid-template-columns: 30px 640px;
+    grid-template-columns: 40px 580px;
     font-family: "Do Hyeon", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 14pt;
 }
 
+.check2, .check3 {
+    width: 620px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 40px 500px 80px;
+
+}
+
+.check2_text_1, .check3_text_1 {
+    width: 500px;
+    height: 50px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+.check2_text_2, .check3_text_2 {
+    width: 90px;
+    height: 50px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10pt;
+    color: #c2c2c2;
+    text-decoration: underline;
+}
+
 .check4 {
     width: 620px;
     height: 50px;
     display: grid;
-    grid-template-columns: 30px 590px;
+    grid-template-columns: 40px 580px;
 }
 
 .check4_info {
-    width: 640px;
+    width: 580px;
     height: 50px;
     display: grid;
     grid-template-rows: 25px 25px;
@@ -115,6 +143,16 @@ p {
     font-weight: 400;
     font-style: normal;
     font-size: 9pt;
+}
+
+.text_a {
+    text-decoration: none;
+    color: #c2c2c2;
+}
+
+.text_a:hover {
+    text-decoration: none;
+    color: #c2c2c2;
 }
 
 /* 기본 체크박스 숨기기 */
@@ -136,6 +174,7 @@ p {
     border-radius: 5px; /* 둥근 모서리 설정 */
     border: 2px solid #c5c5c5; /* 테두리 설정 */
     transition: background-color 0.3s, border-color 1s; /* 부드러운 전환 효과 */
+    cursor: pointer
 }
 
 /* 체크된 상태에서의 스타일 */

@@ -21,4 +21,9 @@ public class LoginController {
     public void join(){
         log.info("회원가입 페이지");
     }
+
+    @GetMapping("/test")
+    public void test(){
+        log.info("테스트 페이지");
+    }
 }
