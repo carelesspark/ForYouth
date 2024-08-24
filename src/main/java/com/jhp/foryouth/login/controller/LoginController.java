@@ -22,8 +22,15 @@ public class LoginController {
         log.info("회원가입 페이지");
     }
 
-    @GetMapping("/test")
-    public void test(){
-        log.info("테스트 페이지");
+    @GetMapping("/terms_of_use")
+    public void terms_of_use(){
+        log.info("이용약관 페이지");
     }
+
+    @GetMapping("/terms_of_personal_info")
+    public void terms_of_personal_info(){
+        log.info("개인정보수집약관 페이지");
+    }
+
+
 }

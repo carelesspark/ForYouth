@@ -1,0 +1,124 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Signika&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+main {
+    flex: 1;
+}
+
+p {
+    margin: 0;
+}
+
+.main_box {
+    width: 800px;
+    height: 900px;
+    display: grid;
+    grid-template-rows: 100px 700px 100px;
+    margin: 0 auto 30px auto;
+    place-items: center;
+}
+
+.top {
+    width: 800px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 19pt;
+}
+
+.middle {
+    width: 800px;
+    height: 700px;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 9px;
+}
+
+.middle::-webkit-scrollbar {
+    width: 10px;
+}
+
+.middle::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+}
+
+.middle::-webkit-scrollbar-track {
+    background-color: grey;
+}
+
+h4 {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+    margin: 20px 0px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+p, li {
+    padding: 5px 0;
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.confirm_a {
+    text-decoration: none;
+    color: black;
+}
+
+.confirm_a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.bottom {
+    width: 800px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.confirm_button {
+    width: 800px;
+    height: 40px;
+    border: 1px solid #c0e2f2;
+    border-radius: 10px;
+}
+
+.confirm_button_text {
+    width: 800px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+}
