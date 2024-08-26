@@ -22,21 +22,21 @@ p {
 }
 
 .main_box {
-    width: 1920px;
+    width: 1900px;
     height: 1080px;
     display: grid;
-    grid-template-columns: 1200px 720px;
+    grid-template-columns: 1200px 700px;
     place-items: center;
 }
 
 .right {
-    width: 720px;
+    width: 700px;
     height: 1080px;
     padding: 50px;
 }
 
 .join_box {
-    width: 620px;
+    width: 600px;
     height: 980px;
     display: grid;
     grid-template-rows: 900px 80px;
@@ -44,14 +44,14 @@ p {
 }
 
 .join_info1 {
-    width: 620px;
+    width: 600px;
     height: 900px;
     display: grid;
     grid-template-rows: 100px 800px;
 }
 
 .join_text {
-    width: 620px;
+    width: 600px;
     height: 100px;
     display: grid;
     grid-template-rows: 50px 50px;
@@ -72,14 +72,14 @@ p {
 }
 
 .check_button {
-    width: 620px;
+    width: 600px;
     height: 800px;
     display: grid;
     grid-template-rows: 50px 50px 50px 50px 600px;
 }
 
 .check1 {
-    width: 620px;
+    width: 600px;
     height: 50px;
     display: grid;
     grid-template-columns: 40px 580px;
@@ -90,7 +90,7 @@ p {
 }
 
 .check2, .check3 {
-    width: 620px;
+    width: 600px;
     height: 50px;
     display: grid;
     grid-template-columns: 40px 500px 80px;
@@ -118,7 +118,7 @@ p {
 }
 
 .check4 {
-    width: 620px;
+    width: 600px;
     height: 50px;
     display: grid;
     grid-template-columns: 40px 580px;
@@ -203,9 +203,9 @@ p {
 }
 
 .join_next_button_div {
-    width: 620px;
+    width: 600px;
     height: 80px;
-    padding-left: 520px;
+    padding-left: 500px;
     padding-top: 30px;
 }
 

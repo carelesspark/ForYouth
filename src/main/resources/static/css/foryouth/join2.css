@@ -1,0 +1,182 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Signika&display=swap');
+
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+main {
+    flex: 1;
+}
+
+p {
+    margin: 0;
+}
+
+.main_box {
+    width: 1900px;
+    height: 1080px;
+    display: grid;
+    grid-template-columns: 1200px 700px;
+    place-items: center;
+}
+
+.right {
+    width: 700px;
+    height: 1080px;
+    padding: 50px;
+}
+
+.join_box {
+    width: 600px;
+    height: 980px;
+    display: grid;
+    grid-template-rows: 900px 80px;
+    place-items: center;
+}
+
+.join_info1 {
+    width: 600px;
+    height: 900px;
+    display: grid;
+    grid-template-rows: 100px 800px;
+}
+
+.join_text {
+    width: 600px;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 50px 50px;
+}
+
+.join_text_1 {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30pt;
+}
+
+.join_text_2 {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15pt;
+}
+
+.join_detail {
+    width: 600px;
+    height: 800px;
+    display: grid;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px 200px;
+}
+
+.id_block {
+    width: 600px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 500px 100px;
+}
+
+.set_id {
+    width: 500px;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 30px 70px;
+}
+
+.id_text {
+    width: 500px;
+    height: 30px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12pt;
+}
+
+.same_id_check {
+    width: 100px;
+    height: 100px;
+}
+
+.same_id_check_button {
+    width: 90px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid #c0e2f2;
+    border-radius: 10px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13pt;
+    margin-top: 10px;
+}
+
+.input_id {
+    width: 500px;
+    height: 70px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+input {
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+input:focus {
+    border-bottom: 2px solid black;
+}
+
+span {
+    color: red;
+}
+
+.check_a {
+    text-decoration: none;
+    color: black;
+}
+
+.check_a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.pwd_block, .pwd_check_block, .name_block, .phone_num_block, .email_block {
+    width: 600px;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 30px 70px;
+}
+
+.pwd_text, .pwd_check_text, .name_text, .phone_num_text, .email_text{
+    width: 600px;
+    height: 30px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12pt;
+}
+
+.input_pwd, .input_pwd_check, .input_name, .input_phone_num, .input_email {
+    width: 600px;
+    height: 70px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14pt;
+}

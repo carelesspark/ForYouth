@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/foryouth/joinMain :: setContent(~{this::content} )}">
+    <div class="right" th:fragment="content">
+        <div class="join_box">
+            <div class="join_info1">
+                <div class="join_text">
+                    <div class="join_text_1">
+                        회원가입
+                    </div>
+                    <div class="join_text_2">
+                        회원가입을 하여 다양한 정보들을 받아보세요!
+                    </div>
+                </div>
+                <div class="join_detail">
+                    <div class="id_block">
+                        <div class="set_id">
+                            <div class="id_text">
+                                아이디 <span>*</span>
+                            </div>
+                            <div class="input_id">
+                                <input type="text" name="id"/>
+                            </div>
+                        </div>
+                        <div class="same_id_check">
+                            <a href="#" class="check_a">
+                                <div class="same_id_check_button">
+                                    중복 확인
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pwd_block">
+                        <div class="pwd_text">
+                            비밀번호 <span>*</span>
+                        </div>
+                        <div class="input_pwd">
+                            <input type="password" name="pwd"/>
+                        </div>
+                    </div>
+                    <div class="pwd_check_block">
+                        <div class="pwd_check_text">
+                            비밀번호 확인 <span>*</span>
+                        </div>
+                        <div class="input_pwd_check">
+                            <input type="password" name="pwd"/>
+                        </div>
+                    </div>
+                    <div class="name_block">
+                        <div class="name_text">
+                            이름 <span>*</span>
+                        </div>
+                        <div class="input_name">
+                            <input type="text" name="name"/>
+                        </div>
+                    </div>
+                    <div class="phone_num_block">
+                        <div class="phone_num_text">
+                            전화번호 <span>*</span>
+                        </div>
+                        <div class="input_phone_num">
+                            <input type="text" name="phone_num"/>
+                        </div>
+                    </div>
+                    <div class="email_block">
+                        <div class="email_text">
+                            이메일 <span>*</span>
+                        </div>
+                        <div class="input_email">
+                            <input type="text" name="email"/>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="join_next_button_div">
+                <a href="#" class="next_a">
+                    <div class="join_next_button">
+                        <div class="join_next_button_text">
+                            다음
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <link th:href="@{/css/foryouth/join2.css}" rel="stylesheet" type="text/css"/>
+    </div>
+</th:block>
+</html>
