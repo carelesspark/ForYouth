@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForYouth 로그인</title>
-    <link th:href="@{/css/foryouth/login.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/login/login.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<main class="login-container">
-    <div class="login-box">
+<main class="login_container">
+    <div class="login_box">
         <h1>ForYouth, For Future</h1>
         <p class="subtitle">나를 위한 혜택과 정보들을 찾아보세요:)</p>
 
@@ -18,7 +18,7 @@
             <button type="submit">로그인</button>
         </form>
 
-        <div class="login-links">
+        <div class="login_links">
             <a href="#">회원가입</a>
             <span>|</span>
             <a href="#">아이디 찾기</a>
@@ -28,21 +28,21 @@
 
         <div class="divider">간편 로그인</div>
 
-        <div class="social-login">
+        <div class="social_login">
             <button class="naver">
-                <span class="span-box">
+                <span class="span_box">
                     <span class="span_img"><img th:src="@{/images/login/naver_logo.png}"/></span>
                     <span class="span_txt">네이버 계정으로 로그인</span>
                 </span>
             </button>
             <button class="google">
-                <span class="span-box">
+                <span class="span_box">
                     <span class="span_img"><img th:src="@{/images/login/google_logo.png}"/></span>
                     <span class="span_txt">구글 계정으로 로그인</span>
                 </span>
             </button>
             <button class="kakao">
-                <span class="span-box">
+                <span class="span_box">
                     <span class="span_img"><img th:src="@{/images/login/kakao_logo.png}"/></span>
                     <span class="span_txt_kakao">카카오 계정으로 로그인</span>
                 </span>
