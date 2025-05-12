@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.join_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.join_box {
+  background-color: white;
+  padding: 40px;
+  width: 400px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.join_box h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  color: #555;
+}
+
+.check_box {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-weight: 500;
+}
+
+.openModal {
+    color: #a9a9a9;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+.check {
+    display: flex;
+    justify-items: center;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+.checkbox1_text {
+    padding-right: 250px;
+}
+
+.checkbox2_text {
+    padding-right: 71px;
+}
+
+.checkbox3_text {
+    padding-right: 30px;
+}
+
+.checkbox4_text_1 {
+    padding-right: 155px;
+}
+
+.check4_text_2 {
+    padding-right: 138px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.next_button {
+  width: 100%;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #c0e2f2;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.7s;
+  border-radius: 8px;
+  color: #5b5b5b;
+  font-weight: 500;
+}
+
+.next_button:hover {
+  background-color: #f6fcff;
+}
+
+.custom_checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.custom_checkbox .checkmark {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+    border: 2px solid #c5c5c5;
+    transition: background-color 0.3s, border-color 1s;
+    cursor: pointer
+}
+
+.custom_checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: #ffffff;
+    border-color: #c5c5c5;
+}
+
+.custom_checkbox .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 13px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.custom_checkbox input[type="checkbox"]:checked + .checkmark::after {
+    display: block;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal_content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px 30px 50px 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.terms_text {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+}
+
+.next_button {
+      width: 100%;
+      padding: 12px;
+      background-color: white;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+}
+
+.terms_button {
+    display: flex;
+    justify-items: center;
+}
+
+.modal_button1 {
+    width: 100%;
+    padding: 12px;
+    margin-right: 15px;
+    background-color: white;
+    border: 1px solid #c0e2f2;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.7s;
+    border-radius: 8px;
+    color: #5b5b5b;
+    font-weight: 600;
+}
+
+.modal_button2 {
+    width: 100%;
+    padding: 12px;
+    margin-left: 15px;
+    background-color: white;
+    border: 1px solid #c0e2f2;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.7s;
+    border-radius: 8px;
+    color: #5b5b5b;
+    font-weight: 600;
+}
+
+.modal_button1:hover {
+  background-color: #f6fcff;
+}
+
+.modal_button2:hover {
+  background-color: #f6fcff;
+}
