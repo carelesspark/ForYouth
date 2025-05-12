@@ -5,14 +5,14 @@ body {
   background-color: #f4f4f4;
 }
 
-.login-container {
+.login_container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.login-box {
+.login_box {
   background-color: white;
   padding: 40px;
   width: 400px;
@@ -21,7 +21,7 @@ body {
   text-align: center;
 }
 
-.login-box h1 {
+.login_box h1 {
   font-size: 24px;
   font-weight: 700;
   margin: 0px;
@@ -62,13 +62,13 @@ form button:hover {
   background-color: #f6fcff;
 }
 
-.login-links {
+.login_links {
   margin-top: 15px;
   font-size: 13px;
   color: #666;
 }
 
-.login-links a {
+.login_links a {
   text-decoration: none;
   color: #555;
   margin: 0 5px;
@@ -81,7 +81,7 @@ form button:hover {
   color: #888;
 }
 
-.social-login button {
+.social_login button {
   width: 100%;
   padding: 7px;
   margin-bottom: 10px;
@@ -125,7 +125,7 @@ form button:hover {
   width: 23px;
 }
 
-.span-box {
+.span_box {
     height: 20px;
     display: flex;
     justify-items: center;
