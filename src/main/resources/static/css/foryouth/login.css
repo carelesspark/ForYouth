@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background-color: white;
+  padding: 40px;
+  width: 400px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.login-box h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  color: #555;
+}
+
+form input {
+  width: 94%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #c0e2f2;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.7s;
+  border-radius: 8px;
+  color: #5b5b5b;
+  font-weight: 500;
+}
+
+form button:hover {
+  background-color: #f6fcff;
+}
+
+.login-links {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #666;
+}
+
+.login-links a {
+  text-decoration: none;
+  color: #555;
+  margin: 0 5px;
+  font-weight: 500;
+}
+
+.divider {
+  margin: 30px 0 15px;
+  font-size: 13px;
+  color: #888;
+}
+
+.social-login button {
+  width: 100%;
+  padding: 7px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border: 1px solid #c0e2f2;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #5b5b5b;
+  background: white;
+  transition: background-color 0.7s;
+  display: flex;
+  justify-items: center;
+  font-weight: 500;
+}
+
+.naver:hover {
+  background-color: #f1ffdf;
+}
+
+.google:hover {
+  background-color: #f6fcff;
+}
+
+.kakao:hover {
+  background-color: #fffc0030;
+}
+
+.social-login button span {
+    letter-spacing: -.3px;
+}
+
+.naver span img {
+  width: 20px;
+}
+
+.google span img {
+  width: 20px;
+}
+
+.kakao span img {
+  width: 23px;
+}
+
+.span-box {
+    height: 20px;
+    display: flex;
+    justify-items: center;
+}
+
+.span_txt {
+    padding-left: 30px;
+}
+
+.span_txt_kakao {
+    padding-left: 28px;
+}
