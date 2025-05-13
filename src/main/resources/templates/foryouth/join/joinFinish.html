@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForYouth 회원가입 완료</title>
+    <link th:href="@{/css/join/joinFinish.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<main class="join_container">
+    <div class="join_box">
+        <h1>회원가입이 완료되었습니다</h1>
+        <p class="subtitle">로그인 후 다양한 ForYouth 소식을 받아보세요:)</p>
+
+        <button type="submit" class="return_login_button" th:onclick="|location.href='@{/foryouth/login/loginMain}'|">로그인하기</button>
+    </div>
+</main>
+</body>
+</html>
