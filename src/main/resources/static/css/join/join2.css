@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.join_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.join_box {
+  background-color: white;
+  padding: 40px;
+  width: 400px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.join_box h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  color: #555;
+}
+
+form input {
+  width: 270px;
+  padding: 12px 12px 12px 2px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+}
+
+form input::placeholder {
+    font-size: 13px;
+}
+
+input[type = "text"]:disabled {
+    background: white;
+}
+
+form small {
+    color: red;
+}
+
+.join_id {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.join_id_left {
+    justify-items: left;
+}
+
+.join_id_right {
+    padding-left: 36px;
+    padding-top: 27px;
+}
+
+.join_pw {
+    justify-items: left;
+    margin-bottom: 15px;
+}
+
+.join_phone {
+    justify-items: left;
+    margin-bottom: 15px;
+}
+
+.join_email {
+    justify-items: left;
+    margin-bottom: 15px;
+}
+
+.check_button {
+    width: 80px;
+    height: 31px;
+    padding: 3px;
+    background-color: white;
+    border: 1px solid #c0e2f2;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.7s;
+    border-radius: 8px;
+    color: #5b5b5b;
+    font-weight: bold;
+}
+
+.request_button {
+    width: 290px;
+    height: 35px;
+    padding: 4px;
+    margin: 10px 0px 15px 0px;
+    background-color: white;
+    border: 1px solid #c0e2f2;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.7s;
+    border-radius: 8px;
+    color: #5b5b5b;
+    font-weight: 500;
+}
+
+.hidden_info {
+    display: none;
+    justify-items: left;
+    margin-bottom: 15px;
+}
+
+.error_message {
+    color: red;
+    font-size: 10px;
+}
+
+.join_button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 30px;
+  background-color: white;
+  border: 1px solid #c0e2f2;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.7s;
+  border-radius: 8px;
+  color: #5b5b5b;
+  font-weight: 500;
+}
+
+.join_button:hover {
+  background-color: #f6fcff;
+}
+
+.check_button:hover {
+  background-color: #f6fcff;
+}
+
+.request_button:hover {
+  background-color: #f6fcff;
+}
