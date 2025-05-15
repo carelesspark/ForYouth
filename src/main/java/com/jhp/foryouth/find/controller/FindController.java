@@ -32,4 +32,9 @@ public class FindController {
         log.info("비밀번호 초기화 페이지");
     }
 
+    @GetMapping("/findPwFinish")
+    public void findPwFinish(){
+        log.info("비밀번호 초기화 완료 페이지");
+    }
+
 }
