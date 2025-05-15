@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForYouth 비밀번호 초기화</title>
+    <link th:href="@{/css/find/findPwFinish.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<main class="find_container">
+    <div class="find_box">
+        <h1>비밀번호 초기화</h1>
+        <p class="subtitle">비밀번호가 성공적으로 초기화되었습니다!</p>
+
+        <button type="submit" class="return_login_button" th:onclick="|location.href='@{/login/loginMain}'|">돌아가기</button>
+    </div>
+</main>
+</body>
+</html>
