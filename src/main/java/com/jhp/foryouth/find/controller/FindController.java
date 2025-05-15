@@ -27,4 +27,9 @@ public class FindController {
         log.info("비밀번호 찾기 페이지");
     }
 
+    @GetMapping("/resetPw")
+    public void resetPw(){
+        log.info("비밀번호 초기화 페이지");
+    }
+
 }
