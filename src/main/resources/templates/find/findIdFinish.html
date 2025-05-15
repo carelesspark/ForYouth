@@ -10,7 +10,8 @@
 <main class="find_container">
     <div class="find_box">
         <h1>아이디 찾기</h1>
-        <p class="subtitle">해당 이메일로 아이디 정보를 전송하였습니다!</p>
+        <p id="successSubtitle" class="success_subtitle">해당 이메일로 아이디 정보를 전송하였습니다!</p>
+        <p id="failSubtitle" class="fail_subtitle">입력하신 정보에 해당하는 계정을 찾을 수 없습니다.</p>
 
         <button type="submit" class="return_login_button" th:onclick="|location.href='@{/login/loginMain}'|">돌아가기</button>
     </div>
