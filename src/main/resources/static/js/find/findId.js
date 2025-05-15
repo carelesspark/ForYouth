@@ -3,12 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const findIdEmail = document.getElementById("findIdEmail");
     const findIdBtn = document.getElementById("findIdBtn");
 
+    const checkNameBlank = document.getElementById("checkNameBlank");
+    const checkEmailBlank = document.getElementById("checkEmailBlank");
     const emailError = document.getElementById("emailError");
 
+    checkNameBlank.style.display = "none";
+    checkEmailBlank.style.display = "none";
     emailError.style.display = "none";
+
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     findIdEmail.addEventListener("input", function() {
+        checkEmailBlank.style.display = "none";
         if(!emailRegex.test(findIdEmail.value)) {
             emailError.style.display = "block";
         } else {
@@ -19,14 +25,18 @@ document.addEventListener("DOMContentLoaded", function () {
     findIdBtn.onclick = function(e) {
         let isValid = true;
 
+        checkNameBlank.style.display = "none";
+        checkEmailBlank.style.display = "none";
+        emailError.style.display = "none";
+
         if (findIdName.value === "") {
-            alert("이름을 입력해주세요.");
+            checkNameBlank.style.display = "block";
             isValid = false;
         } else if (findIdEmail.value === "") {
-            alert("이메일을 입력해주세요.");
+            checkEmailBlank.style.display = "block";
             isValid = false;
         } else if (!emailRegex.test(findIdEmail.value)) {
-            alert("이메일 형식이 올바른지 확인해주세요.");
+            emailError.style.display = "block";
             isValid = false;
         }
 
