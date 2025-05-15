@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForYouth 로그인</title>
+    <link th:href="@{/css/find/findId.css}" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" th:src="@{/js/find/findId.js}"></script>
+</head>
+<body>
+<main class="find_container">
+    <div class="find_box">
+        <form>
+            <h1>아이디 찾기</h1>
+            <p class="subtitle">이름과 이메일을 통해 아이디를 찾아보세요!</p>
+            <div class="find_box_main">
+                <div class="find_id_name">
+                    <label><strong>이름&nbsp;</strong><small>*</small></label>
+                    <div>
+                        <input type="text" placeholder="이름을 입력해주세요." id="findIdName" name="userName">
+                    </div>
+                </div>
+                <div class="find_id_email">
+                    <label><strong>이메일&nbsp;</strong><small>*</small><span></span></label>
+                    <div>
+                        <input type="text" placeholder="email@foryouth.com" id="findIdEmail" name="userEmail">
+                    </div>
+                    <div id="emailError" class="error_message">올바르지 않은 이메일 형식입니다.</div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" id="findIdBtn" class="find_id_button">다음</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>
