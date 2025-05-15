@@ -2,14 +2,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const findPwName = document.getElementById("findPwName");
     const findPwId = document.getElementById("findPwId");
     const findPwEmail = document.getElementById("findPwEmail");
+
+    const authenticationCodeBtn = document.getElementById("authenticationCodeBtn");
     const findPwBtn = document.getElementById("findPwBtn");
 
+
+    const checkNameBlank = document.getElementById("checkNameBlank");
+    const checkIdBlank = document.getElementById("checkIdBlank");
+    const checkEmailBlank = document.getElementById("checkEmailBlank");
     const emailError = document.getElementById("emailError");
 
+    checkNameBlank.style.display = "none";
+    checkIdBlank.style.display = "none";
+    checkEmailBlank.style.display = "none";
     emailError.style.display = "none";
+
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     findPwEmail.addEventListener("input", function() {
+        checkEmailBlank.style.display = "none";
         if(!emailRegex.test(findPwEmail.value)) {
             emailError.style.display = "block";
         } else {
@@ -17,24 +28,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    findPwBtn.onclick = function(e) {
+    authenticationCodeBtn.onclick = function(e) {
         let isValid = true;
 
-        if (findPwName.value === "") {
-            alert("이름을 입력해주세요.");
+        checkNameBlank.style.display = "none";
+        checkIdBlank.style.display = "none";
+        checkEmailBlank.style.display = "none";
+        emailError.style.display = "none";
+
+        if(findPwName.value === "") {
+            checkNameBlank.style.display = "block";
             isValid = false;
-        } else if (findPwId.value === "") {
-            alert("아이디를 입력해주세요.");
+        } else if(findPwId.value === "") {
+            checkIdBlank.style.display = "block";
             isValid = false;
-        } else if (findPwEmail.value === "") {
-            alert("이메일을 입력해주세요.");
+        } else if(findPwEmail.value === "") {
+            checkEmailBlank.style.display = "block";
             isValid = false;
-        } else if (!emailRegex.test(findPwEmail.value)) {
-            alert("이메일 형식이 올바른지 확인해주세요.");
+        } else if(!emailRegex.test(findPwEmail.value)) {
+            emailError.style.display = "block";
             isValid = false;
         }
 
-        if (!isValid) e.preventDefault();
+        if(!isValid) e.preventDefault();
     }
 
 });

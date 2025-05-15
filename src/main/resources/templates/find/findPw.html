@@ -18,12 +18,14 @@
                     <div>
                         <input type="text" placeholder="이름을 입력해주세요." id="findPwName" name="userName">
                     </div>
+                    <div id="checkNameBlank" class="error_message">이름을 입력해주세요.</div>
                 </div>
                 <div class="find_pw_id">
                     <label><strong>아이디&nbsp;</strong><small>*</small></label>
                     <div>
                         <input type="text" placeholder="아이디를 입력해주세요." id="findPwId" name="userId">
                     </div>
+                    <div id="checkIdBlank" class="error_message">아이디를 입력해주세요.</div>
                 </div>
                 <div class="find_pw_email">
                     <label><strong>이메일&nbsp;</strong><small>*</small><span></span></label>
@@ -31,6 +33,7 @@
                         <input type="text" placeholder="email@foryouth.com" id="findPwEmail" name="userEmail">
                     </div>
                     <div id="emailError" class="error_message">올바르지 않은 이메일 형식입니다.</div>
+                    <div id="checkEmailBlank" class="error_message">이메일을 입력해주세요.</div>
                 </div>
                 <div class="find_pw_authentication_code_button">
                     <button type="submit" id="authenticationCodeBtn" class="authentication_code_button">인증코드 받기</button>
@@ -45,12 +48,12 @@
                             </div>
                         </div>
                         <div class="find_pw_authentication_code_right">
-                            <button type="submit" class="authentication_code_check_button">인증</button>
+                            <button type="submit" id="authenticationCodeCheckBtn" class="authentication_code_check_button">인증</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="hidden_info">
                 <button type="submit" id="findPwBtn" class="find_pw_button">다음</button>
             </div>
         </form>
