@@ -7,16 +7,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const idError = document.getElementById("idError");
     const pwError = document.getElementById("pwError");
     const emailError = document.getElementById("emailError");
+    const checkIdBlank = document.getElementById("checkIdBlank");
+    const checkPwBlank = document.getElementById("checkPwBlank");
+    const checkEmailBlank = document.getElementById("checkEmailBlank");
 
     idError.style.display = "none";
     pwError.style.display = "none";
     emailError.style.display = "none";
+    checkIdBlank.style.display = "none";
+    checkPwBlank.style.display = "none";
+    checkEmailBlank.style.display = "none";
 
     const idRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,18}$/;
     const pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+[\]{};:'",.<>/?\\|])[A-Za-z\d!@#$%^&*()\-_=+[\]{};:'",.<>/?\\|]{8,24}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     joinId.addEventListener("input", function() {
+        checkIdBlank.style.display = "none";
         if(!idRegex.test(joinId.value)) {
             idError.style.display = "block";
         } else {
@@ -25,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     joinPw.addEventListener("input", function() {
+        checkPwBlank.style.display = "none";
         if(!pwRegex.test(joinPw.value)) {
             pwError.style.display = "block";
         } else {
@@ -33,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     joinEmail.addEventListener("input", function() {
+        checkEmailBlank.style.display = "none";
         if(!emailRegex.test(joinEmail.value)) {
             emailError.style.display = "block";
         } else {
@@ -43,27 +52,30 @@ document.addEventListener("DOMContentLoaded", function () {
     joinBtn.onclick = function(e) {
         let isValid = true;
 
+        idError.style.display = "none";
+        pwError.style.display = "none";
+        emailError.style.display = "none";
+        checkIdBlank.style.display = "none";
+        checkPwBlank.style.display = "none";
+        checkEmailBlank.style.display = "none";
+
         if (joinId.value === "") {
-            alert("아이디를 입력해주세요.");
+            checkIdBlank.style.display = "block";
             isValid = false;
         } else if (!idRegex.test(joinId.value)) {
-            alert("아이디 형식이 올바른지 확인해주세요.");
+            idError.style.display = "block";
             isValid = false;
-        }
-
-        else if (joinPw.value === "") {
-            alert("비밀번호를 입력해주세요.");
+        } else if (joinPw.value === "") {
+            checkPwBlank.style.display = "block";
             isValid = false;
         } else if (!pwRegex.test(joinPw.value)) {
-            alert("비밀번호 형식이 올바른지 확인해주세요.");
+            pwError.style.display = "block";
             isValid = false;
-        }
-
-        else if (joinEmail.value === "") {
-            alert("이메일을 입력해주세요.");
+        } else if (joinEmail.value === "") {
+            checkEmailBlank.style.display = "block";
             isValid = false;
         } else if (!emailRegex.test(joinEmail.value)) {
-            alert("이메일 형식이 올바른지 확인해주세요.");
+            emailError.style.display = "block";
             isValid = false;
         }
 
