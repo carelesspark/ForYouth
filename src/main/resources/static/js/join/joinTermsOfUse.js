@@ -63,16 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
         modal2.style.display = "none";
     }
 
-    nextBtn.onclick = function() {
+    nextBtn.onclick = function(e) {
+        let isValid = true;
+
         if(!checkItem1.checked) {
             alert("ForYouth 이용에 대한 약관 확인 후 동의해주세요.");
-            return;
+            isValid = false;
+        } else if(!checkItem2.checked) {
+            alert("개인정보 수집 및 이용에 대한 약관 확인 후 동의해주세요.");
+            isValid = false;
         }
 
-        if(!checkItem2.checked) {
-            alert("개인정보 수집 및 이용에 대한 약관 확인 후 동의해주세요.");
-            return;
-        }
+        if (!isValid) e.preventDefault();
     }
 
 });
