@@ -80,6 +80,16 @@ form small {
     margin-bottom: 15px;
 }
 
+.join_name {
+    justify-items: left;
+    margin-bottom: 15px;
+}
+
+.join_birth {
+    justify-items: left;
+    margin-bottom: 15px;
+}
+
 .join_email {
     justify-items: left;
     margin-bottom: 15px;
@@ -99,6 +109,7 @@ form small {
     font-weight: bold;
 }
 
+/*
 .request_button {
     width: 290px;
     height: 35px;
@@ -113,12 +124,7 @@ form small {
     color: #5b5b5b;
     font-weight: 500;
 }
-
-.hidden_info {
-    display: none;
-    justify-items: left;
-    margin-bottom: 15px;
-}
+*/
 
 .error_message {
     color: red;
@@ -147,6 +153,13 @@ form small {
   background-color: #f6fcff;
 }
 
+/*
 .request_button:hover {
   background-color: #f6fcff;
+}
+*/
+
+.hidden_input {
+    width: 50px;
+    border: none;
 }
