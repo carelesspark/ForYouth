@@ -15,6 +15,8 @@ public class UserDTO {
 
     private Long num;
 
+    private Long userNum;
+
     private LocalDateTime modDate;
 
     private LocalDateTime regDate;
