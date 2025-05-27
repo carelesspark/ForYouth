@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkIdBlank = document.getElementById("checkIdBlank");
     const checkPwBlank = document.getElementById("checkPwBlank");
     const checkEmailBlank = document.getElementById("checkEmailBlank");
+    const checkClickBtn = document.getElementById("checkClickBtn");
 
     idError.style.display = "none";
     pwError.style.display = "none";
@@ -62,20 +63,23 @@ document.addEventListener("DOMContentLoaded", function () {
         if (joinId.value === "") {
             checkIdBlank.style.display = "block";
             isValid = false;
-        } else if (!idRegex.test(joinId.value)) {
+        } else if(!idRegex.test(joinId.value)) {
             idError.style.display = "block";
             isValid = false;
-        } else if (joinPw.value === "") {
+        } else if(joinPw.value === "") {
             checkPwBlank.style.display = "block";
             isValid = false;
-        } else if (!pwRegex.test(joinPw.value)) {
+        } else if(!pwRegex.test(joinPw.value)) {
             pwError.style.display = "block";
             isValid = false;
-        } else if (joinEmail.value === "") {
+        } else if(joinEmail.value === "") {
             checkEmailBlank.style.display = "block";
             isValid = false;
-        } else if (!emailRegex.test(joinEmail.value)) {
+        } else if(!emailRegex.test(joinEmail.value)) {
             emailError.style.display = "block";
+            isValid = false;
+        } else if(checkClickBtn.value === "false") {
+            alert("아이디가 중복되는지 확인해주세요!");
             isValid = false;
         }
 

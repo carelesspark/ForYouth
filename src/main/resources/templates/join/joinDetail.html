@@ -6,11 +6,12 @@
     <title>ForYouth 회원가입</title>
     <link th:href="@{/css/join/joinDetail.css}" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" th:src="@{/js/join/joinDetail.js}"></script>
+    <script type="text/javascript" th:src="@{/js/join/checkId.js}"></script>
 </head>
 <body>
 <main class="join_container">
     <div class="join_box">
-        <form>
+        <form action="/join/join_new" method="post">
             <h1>회원가입</h1>
             <p class="subtitle">회원가입을 하여 다양한 정보들을 받아보세요!</p>
             <div class="join_id">
@@ -23,8 +24,10 @@
                     <div id="checkIdBlank" class="error_message">아이디를 입력해주세요.</div>
                 </div>
                 <div class="join_id_right">
-                    <button type="button" class="check_button">중복 확인</button>
+                    <button type="button" class="check_button" onclick="checkUserId()">중복 확인</button>
+                    <input type="text" hidden disabled id="checkClickBtn">
                 </div>
+
             </div>
             <div class="join_pw">
                 <label><strong>비밀번호&nbsp;</strong><small>*</small></label>
