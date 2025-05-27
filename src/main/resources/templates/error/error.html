@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오류가 발생했습니다.</title>
+    <link th:href="@{/css/error/error.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<main class="error_container">
+    <div class="error_box">
+        <h1 th:text="${error}"></h1>
+        <p class="subtitle" th:text="${error_subtitle}"></p>
+
+        <button type="submit" class="return_button" th:onclick="|location.href='@{/login/loginMain}'|">돌아가기</button>
+    </div>
+</main>
+</body>
+</html>
