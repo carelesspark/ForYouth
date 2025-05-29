@@ -21,6 +21,7 @@ bin/
 application.properties
 application.yml
 .idea
+.env
 *.iws
 *.iml
 *.ipr
