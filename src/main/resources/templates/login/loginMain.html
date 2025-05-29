@@ -13,8 +13,8 @@
         <p class="subtitle">나를 위한 혜택과 정보들을 찾아보세요:)</p>
 
         <form>
-            <input type="text" placeholder="아이디" required>
-            <input type="password" placeholder="비밀번호" required>
+            <input type="text" placeholder="아이디" name="userId" required>
+            <input type="password" placeholder="비밀번호" name="userPw" required>
             <button type="submit">로그인</button>
         </form>
 
@@ -41,7 +41,7 @@
                     <span class="span_txt">구글 계정으로 로그인</span>
                 </span>
             </button>
-            <button class="kakao">
+            <button class="kakao" onclick="location.href='/oauth2/authorization/kakao'">
                 <span class="span_box">
                     <span class="span_img"><img th:src="@{/images/login/kakao_logo.png}"/></span>
                     <span class="span_txt_kakao">카카오 계정으로 로그인</span>
