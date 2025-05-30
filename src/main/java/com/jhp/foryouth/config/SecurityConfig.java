@@ -24,9 +24,11 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login/loginMain")
+                        .defaultSuccessUrl("/", true)
                         .permitAll())
                 .oauth2Login(oauth2 -> oauth2
                         .loginPage("/login/loginMain")
+                        .defaultSuccessUrl("/", true)
                         .userInfoEndpoint(userInfo -> userInfo
                                 .userService(kakaoJoinService)));
         return http.build();
