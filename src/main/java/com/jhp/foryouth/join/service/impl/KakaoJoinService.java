@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -31,12 +32,13 @@ public class KakaoJoinService extends DefaultOAuth2UserService {
 
         String provider = request.getClientRegistration().getRegistrationId();
 
-        Map<String, Object> attributes = kakao.getAttributes();
-        Map<String, Object> kakaoAccount = (Map<String, Object>)attributes.get("kakao_account");
-        Map<String, Object> profile = (Map<String, Object>)kakaoAccount.get("profile");
+        Map<String, Object> attributes = new HashMap<>(kakao.getAttributes());
 
+        Map<String, Object> kakaoAccount = (Map<String, Object>)attributes.get("kakao_account");
         String email = (String)kakaoAccount.get("email");
-        String nickname = (String)profile.get("nickname");
+        String nickname = (String)((Map<String, Object>) kakaoAccount.get("profile")).get("nickname");
+
+        attributes.put("email", email);
 
         AuthKakao authKakao = joinAuthKakaoRepository.findByEmail(email).orElseGet(() -> {
             return AuthKakao.builder()
@@ -45,8 +47,6 @@ public class KakaoJoinService extends DefaultOAuth2UserService {
                     .provider(provider)
                     .build();
         });
-        
-        log.info("카카오 서비스 로직 실행");
 
         joinAuthKakaoRepository.save(authKakao);
 
