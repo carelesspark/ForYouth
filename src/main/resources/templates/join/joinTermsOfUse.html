@@ -10,7 +10,8 @@
 <body>
 <main class="join_container">
     <div class="join_box">
-        <form action="/join/joinTermsOfUse_check" method="post">
+        <form th:action="@{/join/joinTermsOfUse_check}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
             <h1>회원가입</h1>
             <p class="subtitle">회원가입을 하여 다양한 정보들을 받아보세요!</p>
             <div class="check_box">
