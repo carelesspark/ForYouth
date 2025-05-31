@@ -20,10 +20,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login/**", "/join/**", "/find/**", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/", "/login/**", "/join", "/join/**", "/find/**", "/css/**", "/js/**", "/images/**", "/check-userid", "/fonts/**", "/favicon.ico", "/error", "webjars/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login/loginMain")
+                        .loginProcessingUrl("/login/loginProcess")
                         .defaultSuccessUrl("/", true)
                         .permitAll())
                 .oauth2Login(oauth2 -> oauth2
