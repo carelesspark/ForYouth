@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForYouth 로그인</title>
     <link th:href="@{/css/login/loginMain.css}" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" th:src="@{/js/login/loginMain.js}"></script>
 </head>
-<body>
+<body th:attr="data-error=${error}">
 <main class="login_container">
     <div class="login_box">
         <h1>ForYouth, For Future</h1>
         <p class="subtitle">나를 위한 혜택과 정보들을 찾아보세요:)</p>
 
-        <form>
+        <form th:action="@{/login/loginProcess}" method="post">
             <input type="text" placeholder="아이디" name="userId" required>
             <input type="password" placeholder="비밀번호" name="userPw" required>
             <button type="submit">로그인</button>
@@ -52,3 +53,4 @@
 </main>
 </body>
 </html>
+
