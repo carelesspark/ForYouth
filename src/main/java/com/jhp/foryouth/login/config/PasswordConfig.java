@@ -1,4 +1,4 @@
-package com.jhp.foryouth.config;
+package com.jhp.foryouth.login.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

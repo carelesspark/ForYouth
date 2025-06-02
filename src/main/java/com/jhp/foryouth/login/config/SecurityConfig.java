@@ -1,4 +1,4 @@
-package com.jhp.foryouth.config;
+package com.jhp.foryouth.login.config;
 
 import com.jhp.foryouth.join.service.impl.KakaoJoinService;
 import com.jhp.foryouth.login.service.LoginService;
@@ -11,9 +11,6 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -44,7 +41,13 @@ public class SecurityConfig {
                         .loginPage("/login/loginMain")
                         .defaultSuccessUrl("/", true)
                         .userInfoEndpoint(userInfo -> userInfo
-                                .userService(kakaoJoinService)));
+                                .userService(kakaoJoinService)))
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll());
         return http.build();
     }
 
