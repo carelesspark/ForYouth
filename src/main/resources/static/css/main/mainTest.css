@@ -37,3 +37,37 @@ body {
     margin-bottom: 50px;
     color: #555;
 }
+
+.logout_button {
+  width: 100%;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #c0e2f2;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.7s;
+  border-radius: 8px;
+  color: #5b5b5b;
+  font-weight: 500;
+}
+
+.logout_button:hover {
+  background-color: #f6fcff;
+}
+
+.login_button {
+  width: 100%;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #c0e2f2;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.7s;
+  border-radius: 8px;
+  color: #5b5b5b;
+  font-weight: 500;
+}
+
+.login_button:hover {
+  background-color: #f6fcff;
+}
