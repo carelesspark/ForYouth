@@ -1,6 +1,5 @@
 package com.jhp.foryouth.join.service.impl;
 
-import com.jhp.foryouth.config.PasswordConfig;
 import com.jhp.foryouth.join.repository.CheckIdRepository;
 import com.jhp.foryouth.join.repository.JoinUserAuthRepository;
 import com.jhp.foryouth.join.repository.JoinUserRepository;
