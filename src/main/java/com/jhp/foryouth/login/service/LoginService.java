@@ -2,7 +2,7 @@ package com.jhp.foryouth.login.service;
 
 import com.jhp.foryouth.login.config.CustomUserDetails;
 import com.jhp.foryouth.user.domain.UserAuth;
-import com.jhp.foryouth.user.repository.UserRepository;
+import com.jhp.foryouth.user.repository.UserAuthRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,13 +21,13 @@ import java.util.List;
 @Log4j2
 public class LoginService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final UserAuthRepository userAuthRepository;
 
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        UserAuth user = userRepository.findByUserId(userId)
+        UserAuth user = userAuthRepository.findByUserId(userId)
                 .orElseThrow(() -> new UsernameNotFoundException("해당 사용자 정보를 찾을 수 없습니다."));
 
         user.getUser().getUserEmail();
