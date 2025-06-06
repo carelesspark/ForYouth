@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>ForYouth 비밀번호 찾기</title>
     <link th:href="@{/css/find/findPw.css}" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" th:src="@{/js/find/findPw.js}"></script>
+    <script type="text/javascript" th:src="@{/js/find/sendEmail.js}"></script>
+    <script type="text/javascript" th:src="@{/js/find/checkCode.js}"></script>
 </head>
 <body>
 <main class="find_container">
@@ -36,9 +40,9 @@
                     <div id="checkEmailBlank" class="error_message">이메일을 입력해주세요.</div>
                 </div>
                 <div class="find_pw_authentication_code_button">
-                    <button type="submit" id="authenticationCodeBtn" class="authentication_code_button">인증코드 받기</button>
+                    <button type="button" id="authenticationCodeBtn" class="authentication_code_button">인증코드 받기</button>
                 </div>
-                <div class="hidden_info">
+                <div class="hidden_info" id="hiddenInfoOne">
                     <div class="find_pw_authentication_code">
                         <div class="find_pw_authentication_code_left">
                             <label><strong>인증코드&nbsp;</strong><small>*</small></label>
@@ -48,13 +52,10 @@
                             </div>
                         </div>
                         <div class="find_pw_authentication_code_right">
-                            <button type="submit" id="authenticationCodeCheckBtn" class="authentication_code_check_button">인증</button>
+                            <button type="button" id="authenticationCodeCheckBtn" class="authentication_code_check_button">인증</button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="hidden_info">
-                <button type="submit" id="findPwBtn" class="find_pw_button">다음</button>
             </div>
         </form>
     </div>
