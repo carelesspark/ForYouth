@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 
@@ -27,21 +28,19 @@ public class FindController {
     }
 
     @PostMapping("/auth/user-id")
-    public void findUserId(@RequestParam String userName, @RequestParam String userEmail, HttpServletResponse response) throws IOException {
+    public String findUserId(@RequestParam String userName, @RequestParam String userEmail, RedirectAttributes redirectAttributes) throws IOException {
         try {
             boolean result = authService.findUserIdByNameAndEmail(userName, userEmail);
             if(result) {
-                response.sendRedirect("/find/findIdFinish");
+                return "redirect:/find/findIdFinish";
             } else {
-                response.setContentType("text/html;charset=UTF-8");
-                response.getWriter().write("<script>alert('해당 정보를 가진 유저가 존재하지 않습니다.');</script>");
-                response.sendRedirect("/find/findId");
+                redirectAttributes.addFlashAttribute("errorMessage", "해당 정보를 가진 유저가 존재하지 않습니다.");
+                return "redirect:/find/findId";
             }
         } catch (MessagingException e) {
             log.error("이메일 전송 오류", e);
-            response.setContentType("text/html;charset=UTF-8");
-            response.getWriter().write("<script>alert('이메일 전송 중 오류가 발생했습니다.');</script>");
-            response.sendRedirect("/");
+            redirectAttributes.addFlashAttribute("errorMessage", "이메일 전송 중 오류가 발생했습니다.");
+            return "redirect:/";
         }
     }
 

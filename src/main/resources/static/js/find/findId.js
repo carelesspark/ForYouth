@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const errorInput = document.getElementById("errorMessage");
+    if(errorInput && errorInput.value) {
+        alert(errorInput.value);
+    }
+
     const findIdName = document.getElementById("findIdName");
     const findIdEmail = document.getElementById("findIdEmail");
     const findIdBtn = document.getElementById("findIdBtn");
