@@ -10,14 +10,16 @@
 <body>
 <main class="reset_container">
     <div class="reset_box">
-        <form>
+        <input type="hidden" id="errorMessage" th:value="${errorMessage}">
+        <form th:action="@{/find/reset-password}" method="post">
             <h1>비밀번호 초기화</h1>
             <p class="subtitle">새로운 비밀번호를 입력해주세요!</p>
+            <input type="hidden" th:value="${userId}" name="userId">
             <div class="reset_box_main">
                 <div class="reset_pw">
                     <label><strong>새로운 비밀번호&nbsp;</strong><small>*</small></label>
                     <div>
-                        <input type="password" placeholder="비밀번호 (8~24자, 영문/숫자/특수문자 포함)" id="resetPw" name="userPw">
+                        <input type="password" placeholder="비밀번호 (8~24자, 영문/숫자/특수문자 포함)" id="resetPw">
                     </div>
                     <div id="pwError" class="error_message">비밀번호는 8~24자, 영문/숫자/특수문자를 모두 포함해야 합니다.</div>
                     <div id="checkPwBlank" class="error_message">비밀번호를 입력해주세요.</div>
@@ -25,7 +27,7 @@
                 <div class="reset_pw_verify">
                     <label><strong>새로운 비밀번호 확인&nbsp;</strong><small>*</small><span></span></label>
                     <div>
-                        <input type="password" placeholder="새롭게 작성한 비밀번호를 다시 한번 입력해주세요." id="verifyPw">
+                        <input type="password" placeholder="새롭게 작성한 비밀번호를 다시 한번 입력해주세요." id="verifyPw" name="userPw">
                     </div>
                     <div id="checkPwVerifyBlank" class="error_message">비밀번호를 입력해주세요.</div>
                     <div id="comparePw" class="error_message">비밀번호가 일치하지 않습니다.</div>

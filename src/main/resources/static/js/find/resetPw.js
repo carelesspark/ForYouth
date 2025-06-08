@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const errorInput = document.getElementById("errorMessage");
+    if(errorInput && errorInput.value) {
+        alert(errorInput.value);
+    }
+
     const resetPw = document.getElementById("resetPw");
     const verifyPw = document.getElementById("verifyPw");
     const resetPwBtn = document.getElementById("resetPwBtn");

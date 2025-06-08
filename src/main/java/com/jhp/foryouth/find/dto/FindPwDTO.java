@@ -16,4 +16,6 @@ public class FindPwDTO {
     private String userEmail;
 
     private String userId;
+
+    private String userPw;
 }

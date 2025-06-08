@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @ToString
 public class UserAuth extends Base {
 
@@ -24,5 +25,7 @@ public class UserAuth extends Base {
     @JoinColumn(name = "user_num", referencedColumnName = "num")
     private User user;
 
-
+    public void setUserPw(String userPw) {
+        this.userPw = userPw;
+    }
 }
