@@ -7,7 +7,7 @@
     <link th:href="@{/css/login/loginMain.css}" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" th:src="@{/js/login/loginMain.js}"></script>
 </head>
-<body th:attr="data-error=${error}">
+<body th:attr="data-error=${error}, data-error-message=${errorMessage}">
 <main class="login_container">
     <div class="login_box">
         <h1>ForYouth, For Future</h1>
@@ -30,7 +30,7 @@
         <div class="divider">간편 로그인</div>
 
         <div class="social_login">
-            <button class="naver">
+            <button class="naver" onclick="location.href='/oauth2/authorization/naver'">
                 <span class="span_box">
                     <span class="span_img"><img th:src="@{/images/login/naver_logo.png}"/></span>
                     <span class="span_txt">네이버 계정으로 로그인</span>

@@ -1,6 +1,6 @@
 package com.jhp.foryouth.login.config;
 
-import com.jhp.foryouth.join.service.impl.KakaoJoinService;
+import com.jhp.foryouth.join.service.impl.OAuthJoinService;
 import com.jhp.foryouth.login.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Log4j2
 public class SecurityConfig {
 
-    private final KakaoJoinService kakaoJoinService;
+    private final OAuthJoinService OAuthJoinService;
     private final LoginService loginService;
     private final PasswordConfig passwordConfig;
 
@@ -27,7 +27,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login/**", "/join", "/join/**", "/find/**", "/css/**", "/js/**", "/images/**", "/check-userid", "/auth/send-code", "/auth/check-code", "/fonts/**", "/favicon.ico", "/error", "webjars/**").permitAll()
+                        .requestMatchers("/", "/login/**", "/oauth2/**", "/join", "/join/**", "/find/**", "/css/**", "/js/**", "/images/**", "/check-userid", "/auth/send-code", "/auth/check-code", "/fonts/**", "/favicon.ico", "/error", "webjars/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login/loginMain")
@@ -39,9 +39,10 @@ public class SecurityConfig {
                         .permitAll())
                 .oauth2Login(oauth2 -> oauth2
                         .loginPage("/login/loginMain")
+                        .failureUrl("/login/loginMain?error=true&type=oauth2")
                         .defaultSuccessUrl("/", true)
                         .userInfoEndpoint(userInfo -> userInfo
-                                .userService(kakaoJoinService)))
+                                .userService(OAuthJoinService)))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
