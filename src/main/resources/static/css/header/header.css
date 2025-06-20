@@ -1,0 +1,54 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.header_inner {
+    max-width: 1460px;
+    min-width: 768px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.nav_menu {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav_menu a {
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+}
+
+.header_buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.logout_btn, .login_btn {
+    background-color: #4fc3f7;
+    color: white;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
