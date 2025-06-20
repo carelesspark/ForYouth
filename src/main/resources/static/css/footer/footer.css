@@ -1,0 +1,74 @@
+.footer {
+    background-color: white;
+    padding: 30px 0 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+.footer_inner {
+    max-width: 1460px;
+    min-width: 768px;
+    width: 100%;
+    padding: 0 50px 0 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer_top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.footer_logo h2 {
+    margin: 0;
+}
+
+.footer_icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer_icons img {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.footer_links {
+    margin: 20px 0 0 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 9pt;
+    text-align: left;
+    font-weight: bold;
+}
+
+.footer_links a {
+    text-decoration: none;
+    color: gray;
+}
+
+.footer_copy {
+    text-align: left;
+    color: #888;
+    font-size: 9pt;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
+.icons8_a:link {
+  color : gray;
+  text-decoration: underline;
+}
+.icons8_a:visited {
+  color : gray;
+  text-decoration: underline;
+}
