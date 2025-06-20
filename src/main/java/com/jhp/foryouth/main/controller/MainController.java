@@ -25,10 +25,13 @@ public class MainController {
         log.info("메인 페이지");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("pageTitle", "ForYouth 메인 페이지");
+        model.addAttribute("cssPath", "/css/main/main.css");
+
 
         if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
             model.addAttribute("isLogin", false);
-            return "mainTest";
+            return "main/main";
         }
 
         Object principal = authentication.getPrincipal();
@@ -43,6 +46,6 @@ public class MainController {
         model.addAttribute("isLogin", true);
         model.addAttribute("email", email);
 
-        return "mainTest";
+        return "main/main";
     }
 }
