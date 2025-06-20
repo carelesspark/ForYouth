@@ -101,10 +101,6 @@ form button:hover {
   background-color: #f1ffdf;
 }
 
-.google:hover {
-  background-color: #f6fcff;
-}
-
 .kakao:hover {
   background-color: #fffc0030;
 }
@@ -114,10 +110,6 @@ form button:hover {
 }
 
 .naver span img {
-  width: 20px;
-}
-
-.google span img {
   width: 20px;
 }
 
