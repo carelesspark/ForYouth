@@ -28,6 +28,14 @@ public class MainController {
         model.addAttribute("pageTitle", "ForYouth 메인 페이지");
         model.addAttribute("cssPath", "/css/main/main.css");
 
+        model.addAttribute("bootstrapCssPath", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css");
+        model.addAttribute("bootstrapCssIntegrity", "sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr");
+        model.addAttribute("bootstrapCssCrossOrigin", "anonymous");
+
+        model.addAttribute("bootstrapJsPath", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js");
+        model.addAttribute("bootstrapJsIntegrity", "sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q");
+        model.addAttribute("bootstrapJsCrossOrigin", "anonymous");
+
 
         if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
             model.addAttribute("isLogin", false);
