@@ -4,19 +4,25 @@
     <head>
         <meta charset="UTF-8">
         <title th:text="${pageTitle}"></title>
-
+        <link th:href="@{${bootstrapCssPath}}" rel="stylesheet" th:integrity="@{${bootstrapCssIntegrity}}" th:crossorigin="@{${bootstrapCssCrossOrigin}}"/>
+        <script th:src="@{${bootstrapJsPath}}"  th:integrity="@{${bootstrapJsIntegrity}}" th:crossorigin="@{${bootstrapJsCrossOrigin}}" ></script>
         <link th:href="@{/css/header/header.css}" rel="stylesheet" type="text/css"/>
         <link th:href="@{/css/footer/footer.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/css/layout/layout.css}" rel="stylesheet" type="text/css"/>
 
         <link th:href="@{${cssPath}}" rel="stylesheet" type="text/css"/>
+
     </head>
     <body>
+    <div class="layout-container">
         <th:block th:replace="~{/layout/fragments/header :: header}"></th:block>
-        <main>
+        <main class="main-content">
             <th:block th:replace="${content}"></th:block>
         </main>
         <th:block th:replace="~{/layout/fragments/footer :: footer}"></th:block>
-        <script type="text/javascript" th:src="@{/js/header/header.js}"></script>
+    </div>
+    <script type="text/javascript" th:src="@{/js/header/header.js}"></script>
+
     </body>
 </th:block>
 </html>
