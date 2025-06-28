@@ -27,6 +27,7 @@ public class MainController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("pageTitle", "ForYouth 메인 페이지");
         model.addAttribute("cssPath", "/css/main/main.css");
+        model.addAttribute("jsPath", "/js/main/calendar.js");
 
         model.addAttribute("bootstrapCssPath", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css");
         model.addAttribute("bootstrapCssIntegrity", "sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr");

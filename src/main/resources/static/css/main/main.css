@@ -33,11 +33,45 @@ body {
 }
 
 /* 카로셀 영역 */
-.bottom-section {
+.middle-section {
   width: 100%;
   height: 300px; /* 원하는 높이로 조절 가능 */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quick-menu {
+    width: 25%;
+    height: 400px;
+    position: relative;
+    padding: 30px 20px 10px 20px;
+    background: #fbfbfb;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.news {
+    width: 30%;
+    height: 400px;
+    padding: 30px 20px 10px 20px;
+    background: #fbfbfb;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar {
+    width: 40%;
+    padding: 30px 20px 10px 20px;
+    background: #fbfbfb;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
 
 .main-title {
     font-size: 36px;
@@ -71,7 +105,7 @@ body {
   margin-top: 143px;
   background: white;
   border-radius: 16px;
-  padding: 20px;
+  padding: 20px 20px 14px 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -83,6 +117,7 @@ body {
 .notice-board ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .notice-board li {
@@ -147,4 +182,122 @@ body {
 
 .region-grid button:hover {
     background-color: #cacaca;
+}
+
+.quick-menu h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.menu-grid button {
+  padding: 10px;
+  border: none;
+  background-color: #ebfaff;
+  color: #0d306d;
+  border-radius: 100px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+  cursor: pointer;
+  transition: background-color 0.7s;
+}
+
+.menu-grid button:hover {
+    background-color: #0aa4b5;
+    color: #ebfaff;
+}
+
+.news h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.news-scroll {
+    max-height: 300px; /* 높이 제한 */
+    overflow-y: auto;  /* 세로 스크롤 */
+}
+
+.news-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  align-items: flex-start;
+  border-bottom: inset;
+}
+
+/* 썸네일 이미지 */
+.news-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* 텍스트 영역 */
+.news-text h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+}
+
+.news-text p {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+  max-height: 2.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calendar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #d4effa;
+  font-weight: bold;
+}
+
+.prev-month {
+    border: none;
+    background: none;
+}
+
+.next-month {
+    border: none;
+    background: none;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar-table th,
+.calendar-table td {
+  width: 14.2%;
+  height: 50px;
+  text-align: center;
+  padding: 5px;
+}
+
+.calendar-table td {
+  cursor: pointer;
+}
+
+.calendar-table td.today {
+  background-color: #aee2ff;
+  border-radius: 50%;
 }

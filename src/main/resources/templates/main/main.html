@@ -70,7 +70,7 @@
         </section>
     </div>
     <!-- 하단: 전체 너비 컨텐츠 (ex. 카로셀) -->
-    <div class="bottom-section">
+    <div class="middle-section">
         <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -96,6 +96,95 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+        </div>
+    </div>
+    <div class="bottom-section">
+        <div class="quick-menu">
+            <h2>🏃‍♂️ Quick Menu</h2>
+            <div class="menu-grid">
+                <button>자유게시판</button>
+                <button>Q&A</button>
+            </div>
+            <div class="menu-grid">
+                <button>미정</button>
+                <button>미정</button>
+            </div>
+            <div class="menu-grid">
+                <button>미정</button>
+                <button>미정</button>
+            </div>
+            <div class="menu-grid">
+                <button>미정</button>
+                <button>미정</button>
+            </div>
+            <div class="menu-grid">
+                <button>미정</button>
+                <button>미정</button>
+            </div>
+        </div>
+        <div class="news">
+            <h2>📰 News</h2>
+            <div class="news-scroll">
+                <div class="news-item">
+                    <img th:src="@{/images/main/news.png}" alt="뉴스 썸네일1" />
+                    <div class="news-text">
+                        <h3>뉴스 제목 1</h3>
+                        <p>뉴스 요약 내용입니다. 테스트입니다테스트입니다테스트입니다...</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img th:src="@{/images/main/news.png}" alt="뉴스 썸네일2" />
+                    <div class="news-text">
+                        <h3>뉴스 제목 2</h3>
+                        <p>뉴스 요약 내용입니다. 테스트입니다테스트입니다테스트입니다...</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img th:src="@{/images/main/news.png}" alt="뉴스 썸네일3" />
+                    <div class="news-text">
+                        <h3>뉴스 제목 3</h3>
+                        <p>뉴스 요약 내용입니다. 테스트입니다테스트입니다테스트입니다...</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img th:src="@{/images/main/news.png}" alt="뉴스 썸네일4" />
+                    <div class="news-text">
+                        <h3>뉴스 제목 4</h3>
+                        <p>뉴스 요약 내용입니다. 테스트입니다테스트입니다테스트입니다...</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img th:src="@{/images/main/news.png}" alt="뉴스 썸네일5" />
+                    <div class="news-text">
+                        <h3>뉴스 제목 5</h3>
+                        <p>뉴스 요약 내용입니다. 테스트입니다테스트입니다테스트입니다...</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img th:src="@{/images/main/news.png}" alt="뉴스 썸네일6" />
+                    <div class="news-text">
+                        <h3>뉴스 제목 6</h3>
+                        <p>뉴스 요약 내용입니다. 테스트입니다테스트입니다테스트입니다...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar">
+            <h2>📆 Calendar</h2>
+            <div class="calendar-header">
+                <button id="prev-month" class="prev-month">◀</button>
+                <span id="month-year"></span>
+                <button id="next-month" class="next-month">▶</button>
+            </div>
+            <table class="calendar-table">
+                <thead>
+                <tr>
+                    <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+                </tr>
+                </thead>
+                <tbody id="calendar-body">
+                </tbody>
+            </table>
         </div>
     </div>
 </main>
