@@ -301,3 +301,39 @@ body {
   background-color: #aee2ff;
   border-radius: 50%;
 }
+
+.logo-slider {
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+    align-content: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-track {
+  display: flex;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+  animation-delay: -15s;
+}
+
+.logo-track a {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.logo-track:hover {
+    animation-play-state: paused;
+}
+
+.logo-track img {
+  height: 40px;
+  display: block;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

@@ -53,4 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         renderCalendar(currentYear, currentMonth);
     });
+
+    const track = document.querySelector('.logo-track');
+    const logos = Array.from(track.children);
+
+    logos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        track.appendChild(clone);
+    });
 });
