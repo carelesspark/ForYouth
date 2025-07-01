@@ -13,7 +13,7 @@
             <a href="#">교육/자격증</a>
             <a href="#">지역 소식</a>
             <a href="#">커뮤니티</a>
-            <a href="#" th:if="${isLogin}">마이페이지</a>
+            <a th:href="@{/mypage/user}" th:if="${isLogin}">마이페이지</a>
         </nav>
 
         <div class="header_buttons">
