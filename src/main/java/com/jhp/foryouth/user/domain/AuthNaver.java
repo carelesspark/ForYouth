@@ -27,4 +27,6 @@ public class AuthNaver extends Base {
     private String mobile;
 
     private String provider;
+
+    private Boolean agreedEventAlarm;
 }

@@ -21,4 +21,6 @@ public class AuthKakao extends Base {
     private String nickname;
 
     private String provider;
+
+    private Boolean agreedEventAlarm;
 }
