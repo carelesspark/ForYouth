@@ -3,6 +3,7 @@ package com.jhp.foryouth.mypage.service;
 import com.jhp.foryouth.user.domain.AuthKakao;
 import com.jhp.foryouth.user.domain.AuthNaver;
 import com.jhp.foryouth.user.domain.User;
+import com.jhp.foryouth.user.domain.UserAuth;
 import com.jhp.foryouth.user.dto.KakaoDTO;
 import com.jhp.foryouth.user.dto.NaverDTO;
 import com.jhp.foryouth.user.dto.UserDTO;
@@ -13,15 +14,15 @@ public interface UserInfoService {
 
     UserDTO oAuthUser(String provider, String email);
 
-    default UserDTO entityToDTO(User entity) {
-        UserDTO userDTO = UserDTO.builder().num(entity.getNum())
-                .regDate(entity.getRegDate())
-                .modDate(entity.getModDate())
-                .userPhone(entity.getUserPhone())
-                .userName(entity.getUserName())
-                .userBirth(entity.getUserBirth())
-                .userEmail(entity.getUserEmail())
-                .agreedEventAlarm(entity.getAgreedEventAlarm()).build();
+    default UserDTO entityToDTO(UserAuth entity) {
+        UserDTO userDTO = UserDTO.builder().num(entity.getUser().getNum())
+                .regDate(entity.getUser().getRegDate())
+                .modDate(entity.getUser().getModDate())
+                .userPhone(entity.getUser().getUserPhone())
+                .userName(entity.getUser().getUserName())
+                .userBirth(entity.getUser().getUserBirth())
+                .userEmail(entity.getUser().getUserEmail())
+                .agreedEventAlarm(entity.getUser().getAgreedEventAlarm()).build();
 
         return userDTO;
     }
