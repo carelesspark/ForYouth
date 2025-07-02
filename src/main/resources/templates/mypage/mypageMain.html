@@ -38,12 +38,13 @@
         <div class="right-section">
             <div class="container">
                 <div class="card">
-                    <h3>👤 기본 정보</h3>
-                    <p><strong>이름:</strong> 홍길동</p>
-                    <p><strong>이메일:</strong> gil.dong@example.com</p>
-                    <p><strong>휴대폰 번호:</strong> 010-1234-5678</p>
-                    <p><strong>생년월일:</strong> 2000.01.01</p>
-                    <p><strong>관심분야:</strong> 새롭게 찾는 중✨</p>
+                    <h3>🙂 기본 정보</h3>
+                    <p><strong>이름:</strong> <span th:text="${dto.userName}"></span></p>
+                    <p><strong>이메일:</strong> <span th:text="${dto.userEmail}"></span></p>
+                    <p><strong>휴대폰 번호:</strong> <span th:text="${dto.userPhone}"></span></p>
+                    <p><strong>생년월일:</strong> <span th:text="${dto.userBirth}"></span></p>
+                    <p><strong>계정 생성일:</strong> <span th:text="${#temporals.format(dto.regDate, 'yyyy년 MM월 dd일 HH시 mm분')}"></span></p>
+                    <p><strong>관심 분야: </strong> <span>찾고 있는 중✨</span></p>
                     <button>정보 수정</button>
                 </div>
 

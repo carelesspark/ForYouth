@@ -1,6 +1,9 @@
 package com.jhp.foryouth.mypage.controller;
 
 import com.jhp.foryouth.login.config.CustomUserDetails;
+import com.jhp.foryouth.mypage.service.UserInfoService;
+import com.jhp.foryouth.mypage.service.impl.UserInfoServiceImpl;
+import com.jhp.foryouth.user.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.Authentication;
@@ -17,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class MypageController {
 
+    private final UserInfoService userInfoService;
+
     @GetMapping("/user")
     public String mypageMain(Model model) {
         log.info("유저 마이페이지 메인");
@@ -31,11 +36,18 @@ public class MypageController {
 
         Object principal = authentication.getPrincipal();
         String email = null;
+        String provider = null;
+        String userId = authentication.getName();
 
         if(principal instanceof CustomUserDetails customUser) {
             email = customUser.getEmail();
         } else if(principal instanceof OAuth2User oAuth2User) {
             email = (String) oAuth2User.getAttributes().get("email");
+        }
+
+        if(provider == null) {
+            UserDTO dto = userInfoService.normalUser(userId);
+            model.addAttribute("dto", dto);
         }
 
         model.addAttribute("isLogin", true);
