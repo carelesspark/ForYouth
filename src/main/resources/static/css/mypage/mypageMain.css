@@ -15,6 +15,7 @@ body {
 
 .left-section {
     width: 17%;
+    height: 616px;
     position: relative;
     background: white;
     border-radius: 16px;
@@ -94,4 +95,155 @@ body {
 
 .user-info a {
     color: #03a94d;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.card p {
+  margin: 25px 0;
+  font-size: 15px;
+}
+
+.card button {
+    background-color: white;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid white;
+}
+
+.card2-a {
+    text-decoration: none;
+    color: black;
+}
+
+.card2 {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.7s;
+}
+
+.card2:hover {
+    background-color: #dadada;
+}
+
+.card2 h4{
+  margin: 0;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.success {
+  background-color: #d1f0d1;
+  color: #2f7d32;
+}
+
+.warning {
+  background-color: #fff4d1;
+  color: #a67b00;
+}
+
+.interest-group{
+    display: flex;
+    gap: 80px;
+}
+
+.footer-action {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-action button {
+  background-color: #dc3545;
+  padding: 8px 16px;
+}
+
+.footer-action button:hover {
+  background-color: #a92833;
+}
+
+.check {
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.checkbox_text {
+    padding-left: 10px;
+}
+
+.custom_checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.custom_checkbox .checkmark {
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #eee;
+    border-radius: 5px;
+    border: 2px solid #c5c5c5;
+    transition: background-color 0.3s, border-color 1s;
+    cursor: pointer
+}
+
+.custom_checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: #ffffff;
+    border-color: #c5c5c5;
+}
+
+.custom_checkbox .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 3px;
+    top: 0px;
+    width: 3px;
+    height: 8px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.custom_checkbox input[type="checkbox"]:checked + .checkmark::after {
+    display: block;
 }
