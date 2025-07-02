@@ -27,7 +27,7 @@ public class LoginService implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        UserAuth user = userAuthRepository.findByUserId(userId)
+        UserAuth user = userAuthRepository.findByUserIdWithUser(userId)
                 .orElseThrow(() -> new UsernameNotFoundException("해당 사용자 정보를 찾을 수 없습니다."));
 
         user.getUser().getUserEmail();
