@@ -12,7 +12,9 @@ public interface UserInfoService {
 
     UserDTO normalUser(String userId);
 
-    UserDTO oAuthUser(String provider, String email);
+    NaverDTO authNaverUser(String email);
+
+    KakaoDTO authKakaoUser(String email);
 
     default UserDTO entityToDTO(UserAuth entity) {
         UserDTO userDTO = UserDTO.builder().num(entity.getUser().getNum())
