@@ -3,11 +3,14 @@ package com.jhp.foryouth.mypage.controller;
 import com.jhp.foryouth.login.config.CustomUserDetails;
 import com.jhp.foryouth.mypage.service.UserInfoService;
 import com.jhp.foryouth.mypage.service.impl.UserInfoServiceImpl;
+import com.jhp.foryouth.user.dto.KakaoDTO;
+import com.jhp.foryouth.user.dto.NaverDTO;
 import com.jhp.foryouth.user.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,17 +44,26 @@ public class MypageController {
 
         if(principal instanceof CustomUserDetails customUser) {
             email = customUser.getEmail();
-        } else if(principal instanceof OAuth2User oAuth2User) {
+        } else if(authentication instanceof OAuth2AuthenticationToken oAuthToken) {
+            OAuth2User oAuth2User = (OAuth2User) principal;
             email = (String) oAuth2User.getAttributes().get("email");
+            provider = oAuthToken.getAuthorizedClientRegistrationId();
         }
 
         if(provider == null) {
             UserDTO dto = userInfoService.normalUser(userId);
             model.addAttribute("dto", dto);
+        } else if(provider.equals("naver")) {
+            NaverDTO dto = userInfoService.authNaverUser(email);
+            model.addAttribute("dto", dto);
+        } else if(provider.equals("kakao")) {
+            KakaoDTO dto = userInfoService.authKakaoUser(email);
+            model.addAttribute("dto", dto);
         }
 
         model.addAttribute("isLogin", true);
         model.addAttribute("email", email);
+        model.addAttribute("provider", provider);
 
         return "mypage/mypageMain";
     }
