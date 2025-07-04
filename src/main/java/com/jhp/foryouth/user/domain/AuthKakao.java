@@ -22,5 +22,6 @@ public class AuthKakao extends Base {
 
     private String provider;
 
-    private Boolean agreedEventAlarm;
+    @Builder.Default
+    private Boolean agreedEventAlarm = false;
 }
