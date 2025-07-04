@@ -32,6 +32,7 @@ public class MypageController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
         model.addAttribute("cssPath", "/css/mypage/mypageMain.css");
+        model.addAttribute("jsPath", "/js/mypage/marketingChange.js");
 
         if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
             return "login/loginMain";
@@ -53,17 +54,19 @@ public class MypageController {
         if(provider == null) {
             UserDTO dto = userInfoService.normalUser(userId);
             model.addAttribute("dto", dto);
+            model.addAttribute("userId", userId);
         } else if(provider.equals("naver")) {
             NaverDTO dto = userInfoService.authNaverUser(email);
             model.addAttribute("dto", dto);
+            model.addAttribute("provider", provider);
         } else if(provider.equals("kakao")) {
             KakaoDTO dto = userInfoService.authKakaoUser(email);
             model.addAttribute("dto", dto);
+            model.addAttribute("provider", provider);
         }
 
         model.addAttribute("isLogin", true);
         model.addAttribute("email", email);
-        model.addAttribute("provider", provider);
 
         return "mypage/mypageMain";
     }

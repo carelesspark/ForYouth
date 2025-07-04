@@ -39,6 +39,7 @@
             <div class="container">
                 <div th:if="${provider == null}" class="card">
                     <h3>🙂 기본 정보</h3>
+                    <p><strong>아이디:</strong> <span th:text="${userId}"></span></p>
                     <p><strong>이름:</strong> <span th:text="${dto.userName}"></span></p>
                     <p><strong>이메일:</strong> <span th:text="${dto.userEmail}"></span></p>
                     <p><strong>휴대폰 번호:</strong> <span th:text="${dto.userPhone}"></span></p>
@@ -69,8 +70,13 @@
 
                 <div class="card">
                     <h3>🔔 마케팅 정보 수신 설정</h3>
-                    <p><strong>마케팅 정보 수신 동의:</strong> ❌</p>
-                    <button>마케팅 정보 수신 동의 버튼</button>
+                    <p>
+                        <strong>마케팅 정보 수신 동의:</strong>
+                        <span th:text="${dto.agreedEventAlarm} ? '⭕' : '❌'"></span>
+                    </p>
+                    <button onclick="marketingBtn()" id="marketingBtn"
+                            th:text="${dto.agreedEventAlarm} ? '마케팅 정보 수신 거부' : '마케팅 정보 수신 동의'">
+                    </button>
                 </div>
 
                 <div class="card">

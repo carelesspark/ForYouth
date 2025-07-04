@@ -3,6 +3,8 @@
 <th:block th:fragment="setContent(content)">
     <head>
         <meta charset="UTF-8">
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+        <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
         <title th:text="${pageTitle}"></title>
         <link th:href="@{${bootstrapCssPath}}" rel="stylesheet" th:integrity="@{${bootstrapCssIntegrity}}" th:crossorigin="@{${bootstrapCssCrossOrigin}}"/>
         <script th:src="@{${bootstrapJsPath}}"  th:integrity="@{${bootstrapJsIntegrity}}" th:crossorigin="@{${bootstrapJsCrossOrigin}}" ></script>
