@@ -180,6 +180,7 @@ body {
 .interest-group{
     display: flex;
     gap: 80px;
+    margin: 25px 0;
 }
 
 .footer-action {
