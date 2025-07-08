@@ -29,7 +29,7 @@ public class MarketingBtnController {
         String provider = null;
 
         if(principal instanceof CustomUserDetails customUserDetails) {
-            email = customUserDetails.getEmail();;
+            email = customUserDetails.getEmail();
         } else if(authentication instanceof OAuth2AuthenticationToken authenticationToken) {
             OAuth2User oauth2User = (OAuth2User) principal;
             email = (String) oauth2User.getAttributes().get("email");
