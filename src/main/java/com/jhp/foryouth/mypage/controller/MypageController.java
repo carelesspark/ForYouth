@@ -33,6 +33,7 @@ public class MypageController {
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
         model.addAttribute("cssPath", "/css/mypage/mypageMain.css");
         model.addAttribute("jsPath", "/js/mypage/marketingChange.js");
+        model.addAttribute("jsPath2", "/js/mypage/saveInterests.js");
 
         if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
             return "login/loginMain";
