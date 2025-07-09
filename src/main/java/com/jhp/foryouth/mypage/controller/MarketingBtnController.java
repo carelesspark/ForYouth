@@ -36,13 +36,7 @@ public class MarketingBtnController {
             provider = authenticationToken.getAuthorizedClientRegistrationId();
         }
 
-        if(provider == null) {
-            marketingBtnService.changeUsersMarketing(userId);
-        } else if(provider.equals("naver")) {
-            marketingBtnService.changeNaverUsersMarketing(email);
-        } else if(provider.equals("kakao")) {
-            marketingBtnService.changeKakaoUsersMarketing(email);
-        }
+        marketingBtnService.updateUsersMarketing(userId, provider, email);
 
         return ResponseEntity.ok(Map.of("success", true));
     }

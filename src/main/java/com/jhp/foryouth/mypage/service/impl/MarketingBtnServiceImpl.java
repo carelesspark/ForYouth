@@ -28,33 +28,29 @@ public class MarketingBtnServiceImpl implements MarketingBtnService {
     private final NaverUserRepository naverUserRepository;
 
     @Override
-    public void changeUsersMarketing(String userId) {
-       UserAuth user = userAuthRepository.findByUserIdWithUser(userId)
-               .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
+    public void updateUsersMarketing(String userId, String provider, String email) {
+        if(provider == null) {
+            UserAuth user = userAuthRepository.findByUserIdWithUser(userId)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
 
-       boolean eventStatus = user.getUser().getAgreedEventAlarm();
-       eventStatus = !eventStatus;
+            boolean eventStatus = user.getUser().getAgreedEventAlarm();
+            eventStatus = !eventStatus;
 
-       userRepository.updateAgreedEventAlarmByNum(eventStatus, user.getUser().getNum());
-    }
+            userRepository.updateAgreedEventAlarmByNum(eventStatus, user.getUser().getNum());
+        } else if(provider.equals("naver")) {
+            AuthNaver naver = naverUserRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
 
-    @Override
-    public void changeKakaoUsersMarketing(String email) {
-        AuthKakao kakao = kakaoUserRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
+            boolean eventStatus = naver.getAgreedEventAlarm();
+            eventStatus = !eventStatus;
+            naverUserRepository.updateAgreedEventAlarmByNum(eventStatus, email);
+        } else if(provider.equals("kakao")) {
+            AuthKakao kakao = kakaoUserRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
 
-        boolean eventStatus = kakao.getAgreedEventAlarm();
-        eventStatus = !eventStatus;
-        kakaoUserRepository.updateAgreedEventAlarmByNum(eventStatus, email);
-    }
-
-    @Override
-    public void changeNaverUsersMarketing(String email) {
-        AuthNaver naver = naverUserRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
-
-        boolean eventStatus = naver.getAgreedEventAlarm();
-        eventStatus = !eventStatus;
-        naverUserRepository.updateAgreedEventAlarmByNum(eventStatus, email);
+            boolean eventStatus = kakao.getAgreedEventAlarm();
+            eventStatus = !eventStatus;
+            kakaoUserRepository.updateAgreedEventAlarmByNum(eventStatus, email);
+        }
     }
 }
