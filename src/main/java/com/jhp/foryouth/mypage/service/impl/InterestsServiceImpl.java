@@ -82,4 +82,55 @@ public class InterestsServiceImpl implements InterestsService {
             }
         }
     }
+
+    @Override
+    public String getUserInterests(String userId, String provider, String email) {
+        if(provider == null) {
+            UserAuth userAuth = userAuthRepository.findByUserIdWithUser(userId)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
+
+            Optional<UserInterests> existingInterests = userInterestsRepository.findByUserNum(userAuth.getUser().getNum());
+
+            if(existingInterests.isPresent()) {
+                if(existingInterests.get().getInterests().isEmpty()) {
+                    return "찾고 있는 중✨";
+                } else {
+                    return existingInterests.get().getInterests();
+                }
+            } else {
+                return "찾고 있는 중✨";
+            }
+        } else if(provider.equals("naver")) {
+            AuthNaver naver = naverUserRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
+
+            Optional<UserNaverInterests> existingInterests = naverInterestsRepository.findByNaver_Num(naver.getNum());
+
+            if(existingInterests.isPresent()) {
+                if(existingInterests.get().getInterests().isEmpty()) {
+                    return "찾고 있는 중✨";
+                } else {
+                    return existingInterests.get().getInterests();
+                }
+            } else {
+                return "찾고 있는 중✨";
+            }
+        } else if(provider.equals("kakao")) {
+            AuthKakao kakao = kakaoUserRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
+
+            Optional<UserKakaoInterests> existingInterests = kakaoInterestsRepository.findByKakao_Num(kakao.getNum());
+
+            if(existingInterests.isPresent()) {
+                if(existingInterests.get().getInterests().isEmpty()) {
+                    return "찾고 있는 중✨";
+                } else {
+                    return existingInterests.get().getInterests();
+                }
+            } else {
+                return "찾고 있는 중✨";
+            }
+        }
+        return "알 수 없는 오류가 발생했습니다.";
+    }
 }
