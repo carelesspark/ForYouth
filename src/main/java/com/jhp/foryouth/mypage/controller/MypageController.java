@@ -1,6 +1,7 @@
 package com.jhp.foryouth.mypage.controller;
 
 import com.jhp.foryouth.login.config.CustomUserDetails;
+import com.jhp.foryouth.mypage.service.InterestsService;
 import com.jhp.foryouth.mypage.service.UserInfoService;
 import com.jhp.foryouth.mypage.service.impl.UserInfoServiceImpl;
 import com.jhp.foryouth.user.dto.KakaoDTO;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MypageController {
 
     private final UserInfoService userInfoService;
+    private final InterestsService interestsService;
 
     @GetMapping("/user")
     public String mypageMain(Model model) {
@@ -65,6 +67,9 @@ public class MypageController {
             model.addAttribute("dto", dto);
             model.addAttribute("provider", provider);
         }
+
+        String interests = interestsService.getUserInterests(userId, provider, email);
+        model.addAttribute("interests", interests);
 
         model.addAttribute("isLogin", true);
         model.addAttribute("email", email);

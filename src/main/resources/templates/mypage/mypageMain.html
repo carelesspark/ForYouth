@@ -45,7 +45,7 @@
                     <p><strong>휴대폰 번호:</strong> <span th:text="${dto.userPhone}"></span></p>
                     <p><strong>생년월일:</strong> <span th:text="${dto.userBirth}"></span></p>
                     <p><strong>계정 생성일:</strong> <span th:text="${#temporals.format(dto.regDate, 'yyyy년 MM월 dd일 HH시 mm분')}"></span></p>
-                    <p><strong>관심 분야: </strong> <span>찾고 있는 중✨</span></p>
+                    <p><strong>관심 분야: </strong> <span th:text="${interests}"></span></p>
                     <button>정보 수정</button>
                 </div>
 
@@ -54,7 +54,7 @@
                     <p><strong>이름:</strong> <span th:text="${dto.nickname}"></span></p>
                     <p><strong>이메일:</strong> <span th:text="${dto.email}"></span></p>
                     <p><strong>계정 생성일:</strong> <span th:text="${#temporals.format(dto.regDate, 'yyyy년 MM월 dd일 HH시 mm분')}"></span></p>
-                    <p><strong>관심 분야: </strong> <span>찾고 있는 중✨</span></p>
+                    <p><strong>관심 분야: </strong> <span th:text="${interests}"></span></p>
                     <button>정보 수정</button>
                 </div>
 
@@ -64,7 +64,7 @@
                     <p><strong>이메일:</strong> <span th:text="${dto.email}"></span></p>
                     <p><strong>생년월일:</strong> <span th:text="${dto.birthyear + '-' + dto.birthday}"></span></p>
                     <p><strong>계정 생성일:</strong> <span th:text="${#temporals.format(dto.regDate, 'yyyy년 MM월 dd일 HH시 mm분')}"></span></p>
-                    <p><strong>관심 분야: </strong> <span>찾고 있는 중✨</span></p>
+                    <p><strong>관심 분야: </strong> <span th:text="${interests}"></span></p>
                     <button>정보 수정</button>
                 </div>
 
