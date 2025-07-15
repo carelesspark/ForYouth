@@ -56,6 +56,7 @@ public class MypageController {
         }
 
         if(provider == null) {
+            model.addAttribute("jsPath4", "/js/mypage/changePw.js");
             UserDTO dto = userInfoService.normalUser(userId);
             model.addAttribute("dto", dto);
             model.addAttribute("userId", userId);

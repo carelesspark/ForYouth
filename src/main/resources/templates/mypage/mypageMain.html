@@ -133,9 +133,44 @@
                     <button onclick="saveInterests()">관심 분야 저장</button>
                 </div>
 
-                <a href="#" class="card2-a"><div class="card2">
+                <a th:if="${provider == null}" href="#" id="openModal2" class="card2-a"><div class="card2">
                     <h4>🔑 비밀번호 변경</h4>
                 </div></a>
+
+                <div th:if="${provider == null}" id="changePwModal" class="modal">
+                    <div class="modal_content">
+                        <h2>비밀번호 변경</h2>
+                        <div class="modal_inputs">
+                            <div class="pw_div">
+                                <label><strong>기존 비밀번호&nbsp;</strong><small>*</small></label>
+                                <div>
+                                    <input type="password" placeholder="기존 비밀번호" id="originalPw" name="userPw">
+                                </div>
+                                <div id="originalPwBlank" class="error_message">기존 비밀번호를 입력해주세요.</div>
+                            </div>
+                            <div class="pw_div">
+                                <label><strong>새로운 비밀번호&nbsp;</strong><small>*</small></label>
+                                <div>
+                                    <input type="password" placeholder="새로운 비밀번호 (8~24자, 영문/숫자/특수문자 포함)" id="newPw" name="userPw">
+                                </div>
+                                <div id="newPwError" class="error_message">비밀번호는 8~24자, 영문/숫자/특수문자를 모두 포함해야 합니다.</div>
+                                <div id="newPwBlank" class="error_message">새로운 비밀번호를 입력해주세요.</div>
+                            </div>
+                            <div class="pw_div">
+                                <label><strong>새로운 비밀번호 확인&nbsp;</strong><small>*</small></label>
+                                <div>
+                                    <input type="password" placeholder="새로운 비밀번호 확인" id="checkNewPw" name="userPw">
+                                </div>
+                                <div id="checkNewPwBlank" class="error_message">새로운 비밀번호를 다시 한번 입력해주세요.</div>
+                                <div id="compareNewPw" class="error_message">입력한 비밀번호가 일치하지 않습니다.</div>
+                            </div>
+                        </div>
+                        <div class="modal_buttons">
+                            <button type="button" id="closeModal2" class="modal_button1">닫기</button>
+                            <button type="button" id="changeModal" class="modal_button2">변경</button>
+                        </div>
+                    </div>
+                </div>
 
                 <a href="#" class="card2-a"><div class="card2">
                     <h4>❌ 회원 탈퇴</h4>
