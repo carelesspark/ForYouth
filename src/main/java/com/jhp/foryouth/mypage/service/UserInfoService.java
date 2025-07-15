@@ -16,6 +16,10 @@ public interface UserInfoService {
 
     KakaoDTO authKakaoUser(String email);
 
+    boolean checkPassword(String userId, String password);
+
+    void updatePassword(String userId, String password);
+
     default UserDTO entityToDTO(UserAuth entity) {
         UserDTO userDTO = UserDTO.builder().num(entity.getUser().getNum())
                 .regDate(entity.getUser().getRegDate())
