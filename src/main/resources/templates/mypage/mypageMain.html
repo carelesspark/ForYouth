@@ -172,9 +172,110 @@
                     </div>
                 </div>
 
-                <a href="#" class="card2-a"><div class="card2">
-                    <h4>❌ 회원 탈퇴</h4>
-                </div></a>
+                <a href="#" id="openModal3" class="card2-a">
+                    <div class="card2">
+                        <h4>❌ 회원 탈퇴</h4>
+                    </div>
+                </a>
+
+                <div id="withdrawModal" class="modal">
+                    <div class="modal_content">
+                        <h2>회원 탈퇴 유의사항 및 동의 안내</h2>
+                        <div class="terms_text">
+                            <h4>1. 회원 탈퇴</h4>
+                            <p>회원 탈퇴 시 회원님의 계정은 즉시 삭제되며, 이후에는 복구가 불가능합니다.</p>
+
+                            <h4>2. 탈퇴 시 삭제 및 접근 제한</h4>
+                            <p>탈퇴와 함께 다음과 같은 정보가 삭제되거나 접근이 제한됩니다.</p>
+                            <ul>
+                                <li>마이페이지 내 신청 정보 및 맞춤 추천 내역</li>
+                                <li>저장한 이력서 및 자기소개서 등 문서 보관함</li>
+                                <li>북마크, 댓글, 게시글 등의 커뮤니티 활동 이력</li>
+                            </ul>
+
+                            <h4>3. 탈퇴 시 삭제 및 접근 제한</h4>
+                            <p>단, 아래 정보는 관계법령에 따라 일정 기간 보관될 수 있습니다.</p>
+                            <ul>
+                                <li>이름 및 이메일</li>
+                                <li>탈퇴 사유</li>
+                            </ul>
+
+                            <h4>4. 탈퇴 시 정보 보관</h4>
+                            <p>탈퇴 후에도 법령 또는 회사 정책에 따라 최소한의 정보는 일정 기간 보존될 수 있습니다.</p>
+
+                            <h4>5. 탈퇴 시 서비스 중단</h4>
+                            <p>탈퇴 이전에 신청한 서비스가 있는 경우, 해당 서비스 제공은 중단될 수 있으며 별도의 복구 요청은 불가합니다.</p>
+                        </div>
+                        <div>
+                            <h3>탈퇴 사유</h3>
+                            <div class="withdraw-reason-group">
+                                <div class="check2">
+                                    <span>
+                                        <label class="custom_checkbox2">
+                                            <input type="checkbox" id="withdrawCheckItem1" class="check_item2">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                    </span>
+                                    <span class="checkbox_text2"><strong>낮은 서비스 만족도</strong></span>
+                                </div>
+
+                                <div class="check2">
+                                    <span>
+                                        <label class="custom_checkbox2">
+                                            <input type="checkbox" id="withdrawCheckItem2" class="check_item2">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                    </span>
+                                    <span class="checkbox_text2"><strong>복잡한 이용방법</strong></span>
+                                </div>
+
+                                <div class="check2">
+                                    <span>
+                                        <label class="custom_checkbox2">
+                                            <input type="checkbox" id="withdrawCheckItem3" class="check_item2">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                    </span>
+                                    <span class="checkbox_text2"><strong>부족한 정보</strong></span>
+                                </div>
+
+                                <div class="check2">
+                                    <span>
+                                        <label class="custom_checkbox2">
+                                            <input type="checkbox" id="withdrawCheckItem4" class="check_item2">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                    </span>
+                                    <span class="checkbox_text2"><strong>중복 계정 정리</strong></span>
+                                </div>
+
+                                <div class="check2">
+                                    <span>
+                                        <label class="custom_checkbox2">
+                                            <input type="checkbox" id="withdrawCheckItem5" class="check_item2">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                    </span>
+                                    <span class="checkbox_text2"><strong>낮아진 이용 빈도</strong></span>
+                                </div>
+
+                                <div class="check2">
+                                    <span>
+                                        <label class="custom_checkbox2">
+                                            <input type="checkbox" id="withdrawCheckItem6" class="check_item2">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                    </span>
+                                    <span class="checkbox_text2"><strong>기타</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal_buttons">
+                            <button type="button" id="closeModal3" class="modal_button1">닫기</button>
+                            <button type="button" id="withdrawUserModal" class="modal_button2">탈퇴</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
