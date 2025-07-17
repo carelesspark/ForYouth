@@ -37,6 +37,7 @@ public class MypageController {
         model.addAttribute("jsPath", "/js/mypage/marketingChange.js");
         model.addAttribute("jsPath2", "/js/mypage/saveInterests.js");
         model.addAttribute("jsPath3", "/js/mypage/interestsCheckbox.js");
+        model.addAttribute("jsPath5", "/js/mypage/withdrawUser.js");
 
         if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
             return "login/loginMain";
