@@ -1,12 +1,10 @@
 package com.jhp.foryouth.mypage.service;
 
-import com.jhp.foryouth.user.domain.AuthKakao;
-import com.jhp.foryouth.user.domain.AuthNaver;
-import com.jhp.foryouth.user.domain.User;
-import com.jhp.foryouth.user.domain.UserAuth;
+import com.jhp.foryouth.user.domain.*;
 import com.jhp.foryouth.user.dto.KakaoDTO;
 import com.jhp.foryouth.user.dto.NaverDTO;
 import com.jhp.foryouth.user.dto.UserDTO;
+import lombok.With;
 
 public interface UserInfoService {
 
@@ -19,6 +17,8 @@ public interface UserInfoService {
     boolean checkPassword(String userId, String password);
 
     void updatePassword(String userId, String password);
+
+    void withdraw(String userId, String provider, String email, String reason);
 
     default UserDTO entityToDTO(UserAuth entity) {
         UserDTO userDTO = UserDTO.builder().num(entity.getUser().getNum())
@@ -59,5 +59,16 @@ public interface UserInfoService {
                 .build();
 
         return kakaoDTO;
+    }
+
+    default WithdrawUsers valuesToWithdrawEntity(String email, String name, String reason, String provider) {
+        WithdrawUsers entity = WithdrawUsers.builder()
+                .email(email)
+                .name(name)
+                .withdrawReason(reason)
+                .provider(provider)
+                .build();
+
+        return entity;
     }
 }

@@ -1,15 +1,11 @@
 package com.jhp.foryouth.mypage.service.impl;
 
+import com.jhp.foryouth.user.domain.*;
+import com.jhp.foryouth.user.repository.*;
 import com.jhp.foryouth.mypage.service.UserInfoService;
-import com.jhp.foryouth.user.domain.AuthKakao;
-import com.jhp.foryouth.user.domain.AuthNaver;
-import com.jhp.foryouth.user.domain.UserAuth;
 import com.jhp.foryouth.user.dto.KakaoDTO;
 import com.jhp.foryouth.user.dto.NaverDTO;
 import com.jhp.foryouth.user.dto.UserDTO;
-import com.jhp.foryouth.user.repository.KakaoUserRepository;
-import com.jhp.foryouth.user.repository.NaverUserRepository;
-import com.jhp.foryouth.user.repository.UserAuthRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,8 +20,15 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserInfoServiceImpl implements UserInfoService {
 
     private final UserAuthRepository userAuthRepository;
+    private final UserRepository userRepository;
     private final KakaoUserRepository kakaoUserRepository;
     private final NaverUserRepository naverUserRepository;
+
+    private final UserInterestsRepository userInterestsRepository;
+    private final UserKakaoInterestsRepository userKakaoInterestsRepository;
+    private final UserNaverInterestsRepository userNaverInterestsRepository;
+
+    private final WithdrawUsersRepository withdrawUsersRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -70,6 +73,43 @@ public class UserInfoServiceImpl implements UserInfoService {
         userAuth.setUserPw(encodedPassword);
 
         userAuthRepository.save(userAuth);
+    }
+
+    @Override
+    public void withdraw(String userId, String provider, String email, String reason) {
+        if(provider == null) {
+            UserAuth userAuth = userAuthRepository.findByUserIdWithUser(userId)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
+
+            User user = userAuth.getUser();
+
+            WithdrawUsers entity = valuesToWithdrawEntity(email, user.getUserName(), reason, "normal");
+            withdrawUsersRepository.save(entity);
+
+            userAuthRepository.delete(userAuth);
+            userInterestsRepository.deleteByUserNum(user.getNum());
+            userRepository.delete(user);
+
+        } else if(provider.equals("naver")) {
+            AuthNaver naver = naverUserRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
+
+            WithdrawUsers entity = valuesToWithdrawEntity(email, naver.getName(), reason, provider);
+            withdrawUsersRepository.save(entity);
+
+            userNaverInterestsRepository.deleteByUserNaverNum(naver.getNum());
+            naverUserRepository.delete(naver);
+
+        } else if(provider.equals("kakao")) {
+            AuthKakao kakao = kakaoUserRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("해당 유저를 찾을 수 없습니다."));
+
+            WithdrawUsers entity = valuesToWithdrawEntity(email, kakao.getNickname(), reason, provider);
+            withdrawUsersRepository.save(entity);
+
+            userKakaoInterestsRepository.deleteByUserKakaoNum(kakao.getNum());
+            kakaoUserRepository.delete(kakao);
+        }
     }
 
 
