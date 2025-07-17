@@ -1,8 +1,8 @@
 package com.jhp.foryouth.mypage.service.impl;
 
-import com.jhp.foryouth.mypage.repository.UserInterestsRepository;
-import com.jhp.foryouth.mypage.repository.UserKakaoInterestsRepository;
-import com.jhp.foryouth.mypage.repository.UserNaverInterestsRepository;
+import com.jhp.foryouth.user.repository.UserInterestsRepository;
+import com.jhp.foryouth.user.repository.UserKakaoInterestsRepository;
+import com.jhp.foryouth.user.repository.UserNaverInterestsRepository;
 import com.jhp.foryouth.mypage.service.InterestsService;
 import com.jhp.foryouth.user.domain.*;
 import com.jhp.foryouth.user.repository.*;
