@@ -32,16 +32,17 @@ public class MypageController {
         log.info("유저 마이페이지 메인");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
+            return "login/loginMain";
+        }
+
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
         model.addAttribute("cssPath", "/css/mypage/mypageMain.css");
         model.addAttribute("jsPath", "/js/mypage/marketingChange.js");
         model.addAttribute("jsPath2", "/js/mypage/saveInterests.js");
         model.addAttribute("jsPath3", "/js/mypage/interestsCheckbox.js");
         model.addAttribute("jsPath5", "/js/mypage/withdrawUser.js");
-
-        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
-            return "login/loginMain";
-        }
 
         Object principal = authentication.getPrincipal();
         String email = null;
@@ -78,5 +79,22 @@ public class MypageController {
         model.addAttribute("email", email);
 
         return "mypage/mypageMain";
+    }
+
+    @GetMapping("/post")
+    public String myPost(Model model) {
+        log.info("내가 작성한 게시글 페이지");
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
+            return "login/loginMain";
+        }
+
+        model.addAttribute("pageTitle", "ForYouth 마이페이지");
+        model.addAttribute("cssPath", "/css/mypage/myPost.css");
+        model.addAttribute("jsPath", "/js/mypage/postDate.js");
+
+        return "mypage/myPost";
     }
 }
