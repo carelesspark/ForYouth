@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
+    <main class="main-container" th:fragment="content">
+        <div class="left-section">
+            <div class="user-info menu-style">
+                <a th:href="@{/mypage/user}">회원 정보</a>
+            </div>
+            <div class="community-activity menu-style">
+                <a th:href="@{/mypage/post}">커뮤니티 활동</a>
+                <div class="sub-menu-style">
+                    <div class="my-post">
+                        <a th:href="@{/mypage/post}">내가 작성한 게시글</a>
+                    </div>
+                    <div class="my-comment">
+                        <a th:href="@{/mypage/comment}">내가 작성한 댓글</a>
+                    </div>
+                    <div class="like-post">
+                        <a th:href="@{/mypage/like-post}">좋아요 누른 게시글</a>
+                    </div>
+                    <div class="like-comment">
+                        <a th:href="@{/mypage/like-comment}">좋아요 누른 댓글</a>
+                    </div>
+                </div>
+            </div>
+            <div class="bookmark menu-style">
+                <a th:href="@{/mypage/bookmark}">즐겨찾기 목록</a>
+            </div>
+            <div class="latest-info menu-style">
+                <a th:href="@{/mypage/latest-info}">최근 본 정보</a>
+            </div>
+            <div class="question-answer">
+                <a th:href="@{/mypage/qna}">ForYouth Q&A</a>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="container">
+                <div class="card">
+                    <h3>✏ 내가 작성한 게시글</h3>
+                    <p>게시글 &nbsp;<span>0</span></p>
+                    <div class="option-box">
+                        <div class="date-buttons">
+                            <button type="button" data-months="0">오늘</button>
+                            <button type="button" data-months="1">1개월</button>
+                            <button type="button" data-months="3">3개월</button>
+                            <button type="button" data-months="6">6개월</button>
+                            <button type="button" data-months="12">1년</button>
+                            <button type="button" data-months="36">3년</button>
+                        </div>
+
+                        <form class="filter">
+                            <input type="date" name="startDate" id="startDate" />
+                            <input type="date" name="endDate" id="endDate" />
+                            <input type="text" name="keyword" placeholder="제목 또는 내용" />
+                            <button type="submit">검색</button>
+                        </form>
+                    </div>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </main>
+</th:block>
+</html>

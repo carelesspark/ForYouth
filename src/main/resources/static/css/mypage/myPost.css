@@ -1,0 +1,488 @@
+body {
+    margin: 0;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #f7fbfd;
+}
+
+.main-container {
+    max-width: 1400px;
+    min-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-section {
+    width: 17%;
+    height: 616px;
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0px;
+}
+
+.right-section {
+    width: 77.5%;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-style {
+    border-bottom-color: #f7fbfd;
+    padding: 0px 14px;
+    border-bottom-style: solid;
+    border-width: 6px;
+}
+
+.menu-style a {
+    font-size: 14pt;
+    display: inline-block;
+    font-weight: bold;
+    width: 93%;
+    margin: 10px 0px;
+    padding: 10px 8px;
+    text-decoration: none;
+    color: black;
+    border-radius: 7px;
+    transition: background-color 0.7s;
+}
+
+.menu-style a:hover {
+    background-color: #efefef;
+}
+
+.question-answer {
+    border-bottom-color: #f7fbfd;
+    padding: 0px 14px;
+}
+
+.question-answer a {
+    font-size: 14pt;
+    display: inline-block;
+    font-weight: bold;
+    width: 93%;
+    margin: 10px 0px;
+    padding: 10px 8px;
+    text-decoration: none;
+    color: black;
+    border-radius: 7px;
+    transition: background-color 0.7s;
+}
+
+.question-answer a:hover {
+    background-color: #efefef;
+}
+
+.sub-menu-style a {
+    font-size: 12pt;
+    display: inline-block;
+    font-weight: normal;
+    width: 93%;
+    padding: 10px 8px;
+    text-decoration: none;
+    color: black;
+    border-radius: 7px;
+    transition: background-color 0.7s;
+}
+
+.sub-menu-style a:hover {
+    background-color: #efefef;
+}
+
+.my-post a {
+    color: #03a94d;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.card p {
+  margin: 25px 0;
+  font-size: 15px;
+  color: #949494;
+}
+
+.card span {
+    color: #03a94d;
+}
+
+.date-buttons button {
+    background-color: #f9f9f9;
+    color: #000000;
+    border: 1px solid #9f9f9f;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.date-buttons button:hover {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.date-buttons button.active {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.filter button {
+    background-color: white;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter button:hover {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid white;
+}
+
+.option-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.date-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter input[type="date"],
+.filter input[type="text"] {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    font-family: emoji;
+    width: 180px;
+    transition: all 0.2s ease;
+}
+
+.filter input:focus {
+    border-color: #4a90e2;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.card2-a {
+    text-decoration: none;
+    color: black;
+}
+
+.card2 {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.7s;
+}
+
+.card2:hover {
+    background-color: #dadada;
+}
+
+.card2 h4{
+  margin: 0;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.success {
+  background-color: #d1f0d1;
+  color: #2f7d32;
+}
+
+.warning {
+  background-color: #fff4d1;
+  color: #a67b00;
+}
+
+.interest-group{
+    display: flex;
+    gap: 80px;
+    margin: 25px 0;
+}
+
+.footer-action {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-action button {
+  background-color: #dc3545;
+  padding: 8px 16px;
+}
+
+.footer-action button:hover {
+  background-color: #a92833;
+}
+
+.check {
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.checkbox_text {
+    padding-left: 10px;
+}
+
+.custom_checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.custom_checkbox .checkmark {
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #eee;
+    border-radius: 5px;
+    border: 2px solid #c5c5c5;
+    transition: background-color 0.3s, border-color 1s;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.custom_checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: #ffffff;
+    border-color: #c5c5c5;
+}
+
+.custom_checkbox .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 3px;
+    top: 0px;
+    width: 3px;
+    height: 8px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.custom_checkbox input[type="checkbox"]:checked + .checkmark::after {
+    display: block;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal_content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px 30px 50px 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal_buttons {
+    display: flex;
+    justify-items: center;
+}
+
+.modal_button1 {
+    width: 100%;
+    padding: 12px;
+    margin-right: 15px;
+    background-color: white;
+    border: 1px solid #c0e2f2;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.7s;
+    border-radius: 8px;
+    color: #5b5b5b;
+    font-weight: 600;
+}
+
+.modal_button2 {
+    width: 100%;
+    padding: 12px;
+    margin-left: 15px;
+    background-color: white;
+    border: 1px solid #c0e2f2;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.7s;
+    border-radius: 8px;
+    color: #5b5b5b;
+    font-weight: 600;
+}
+
+.modal_button1:hover {
+  background-color: #f6fcff;
+}
+
+.modal_button2:hover {
+  background-color: #f6fcff;
+}
+
+
+.pw_div {
+    padding-bottom: 30px;
+}
+
+.modal_inputs input {
+  width: 300px;
+  padding: 12px 12px 12px 2px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+}
+
+.modal_inputs input::placeholder {
+    font-size: 13px;
+}
+
+.modal_inputs small {
+    color: red;
+}
+
+input[type = "text"]:disabled {
+    background: white;
+}
+
+.error_message {
+    color: red;
+    font-size: 10px;
+}
+
+.terms_text {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+}
+
+.withdraw-reason-group {
+    display: flex;
+    gap: 30px;
+    margin: 25px 0;
+    flex-flow: column;
+    align-items: flex-start;
+    font-size: 13px;
+}
+
+.check2 {
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.checkbox_text2 {
+    padding-left: 10px;
+}
+
+.custom_checkbox2 input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.custom_checkbox2 .checkmark2 {
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #eee;
+    border-radius: 5px;
+    border: 2px solid #c5c5c5;
+    transition: background-color 0.3s, border-color 1s;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.custom_checkbox2 input[type="checkbox"]:checked + .checkmark2 {
+    background-color: #ffffff;
+    border-color: #c5c5c5;
+}
+
+.custom_checkbox2 .checkmark2::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 3px;
+    top: 0px;
+    width: 3px;
+    height: 8px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.custom_checkbox2 input[type="checkbox"]:checked + .checkmark2::after {
+    display: block;
+}

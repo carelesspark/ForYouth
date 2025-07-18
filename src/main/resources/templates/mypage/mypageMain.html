@@ -4,33 +4,33 @@
     <main class="main-container" th:fragment="content">
         <div class="left-section">
             <div class="user-info menu-style">
-                <a href="#">회원 정보</a>
+                <a th:href="@{/mypage/user}">회원 정보</a>
             </div>
             <div class="community-activity menu-style">
-                <a href="#">커뮤니티 활동</a>
+                <a th:href="@{/mypage/post}">커뮤니티 활동</a>
                 <div class="sub-menu-style">
                     <div class="my-post">
-                        <a href="#">내가 작성한 게시글</a>
+                        <a th:href="@{/mypage/post}">내가 작성한 게시글</a>
                     </div>
                     <div class="my-comment">
-                        <a href="#">내가 작성한 댓글</a>
+                        <a th:href="@{/mypage/comment}">내가 작성한 댓글</a>
                     </div>
                     <div class="like-post">
-                        <a href="#">좋아요 누른 게시글</a>
+                        <a th:href="@{/mypage/like-post}">좋아요 누른 게시글</a>
                     </div>
                     <div class="like-comment">
-                        <a href="#">좋아요 누른 댓글</a>
+                        <a th:href="@{/mypage/like-comment}">좋아요 누른 댓글</a>
                     </div>
                 </div>
             </div>
             <div class="bookmark menu-style">
-                <a href="#">즐겨찾기 목록</a>
+                <a th:href="@{/mypage/bookmark}">즐겨찾기 목록</a>
             </div>
             <div class="latest-info menu-style">
-                <a href="#">최근 본 정보</a>
+                <a th:href="@{/mypage/latest-info}">최근 본 정보</a>
             </div>
             <div class="question-answer">
-                <a href="#">ForYouth Q&A</a>
+                <a th:href="@{/mypage/qna}">ForYouth Q&A</a>
             </div>
         </div>
         <div class="right-section">
