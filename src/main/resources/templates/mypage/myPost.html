@@ -39,20 +39,37 @@
                     <h3>✏ 내가 작성한 게시글</h3>
                     <p>게시글 &nbsp;<span>0</span></p>
                     <div class="option-box">
-                        <div class="date-buttons">
-                            <button type="button" data-months="0">오늘</button>
-                            <button type="button" data-months="1">1개월</button>
-                            <button type="button" data-months="3">3개월</button>
-                            <button type="button" data-months="6">6개월</button>
-                            <button type="button" data-months="12">1년</button>
-                            <button type="button" data-months="36">3년</button>
-                        </div>
+                        <form method="get" th:action="@{/mypage/post}">
+                            <input type="hidden" name="period" id="periodInput"/>
+                            <div class="date-buttons">
+                                <button type="button" data-months="0"
+                                        th:classappend="${period} == '0' ? 'active' : ''">오늘
+                                </button>
+                                <button type="button" data-months="1"
+                                        th:classappend="${period} == '1' ? 'active' : ''">1개월
+                                </button>
+                                <button type="button" data-months="3"
+                                        th:classappend="${period} == '3' ? 'active' : ''">3개월
+                                </button>
+                                <button type="button" data-months="6"
+                                        th:classappend="${period} == '6' ? 'active' : ''">6개월
+                                </button>
+                                <button type="button" data-months="12"
+                                        th:classappend="${period} == '12' ? 'active' : ''">1년
+                                </button>
+                                <button type="button" data-months="36"
+                                        th:classappend="${period} == '36' ? 'active' : ''">3년
+                                </button>
+                            </div>
 
-                        <form class="filter">
-                            <input type="date" name="startDate" id="startDate" />
-                            <input type="date" name="endDate" id="endDate" />
-                            <input type="text" name="keyword" placeholder="제목 또는 내용" />
-                            <button type="submit">검색</button>
+                            <div class="filter">
+                                <input type="date" name="startDate" id="startDate"
+                                       th:value="${startDate != null} ? ${#temporals.format(startDate, 'yyyy-MM-dd')} : ''"/>
+                                <input type="date" name="endDate" id="endDate"
+                                       th:value="${endDate != null} ? ${#temporals.format(endDate, 'yyyy-MM-dd')} : ''"/>
+                                <input type="text" name="keyword" th:value="${keyword}" placeholder="제목 또는 내용"/>
+                                <button type="submit">검색</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -69,87 +86,35 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td class="center">5</td>
-                                <td class="post-title"><a href="#">청년 주거 지원 정책 안내</a></td>
-                                <td class="center">관리자</td>
-                                <td class="center">2025-07-18</td>
-                                <td class="center">24</td>
+                            <tr th:if="${postPage.content.isEmpty()}">
+                                <td colspan="5" class="center">작성한 게시글이 없습니다 :)</td>
                             </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="post-title"><a href="#">청년 구직활동 지원금 신청방법</a></td>
-                                <td class="center">홍길동</td>
-                                <td class="center">2025-07-17</td>
-                                <td class="center">103</td>
+                            <tr th:each="post, stat : ${postPage.content}">
+                                <td th:text="${stat.index + 1 + postPage.number * postPage.size}" class="center"></td>
+                                <td class="post-title"><a href="#" th:text="${post.title}"></a></td>
+                                <td th:text="${post.writerId}" class="center"></td>
+                                <td th:text="${#temporals.format(post.regDate, 'yyyy-MM-dd')}" class="center"></td>
+                                <td th:text="${post.visitCount}" class="center"></td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="pagination">
-<!--                        <button disabled>&lt; 이전</button>-->
-                        <button class="active">1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>4</button>
-                        <button>5</button>
-<!--                        <button>다음 &gt;</button>-->
+                    <div class="pagination" th:if="${postPage.totalPages > 0}">
+                        <a th:if="${postPage.hasPrevious()}"
+                           th:href="@{/mypage/post(page=${postPage.number - 1}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}">
+                            &lt; 이전
+                        </a>
+
+                        <span th:each="i : ${#numbers.sequence(0, postPage.totalPages - 1)}">
+                            <a th:href="@{/mypage/post(page=${i}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}"
+                               th:text="${i + 1}"
+                               th:class="${i == postPage.number} ? 'active' : ''"></a>
+                        </span>
+
+                        <a th:if="${postPage.hasNext()}"
+                           th:href="@{/mypage/post(page=${postPage.number + 1}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}">
+                            다음 &gt;
+                        </a>
                     </div>
                 </div>
                 <div></div>
