@@ -7,6 +7,7 @@
     <link th:href="@{/css/join/joinDetail.css}" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" th:src="@{/js/join/joinDetail.js}"></script>
     <script type="text/javascript" th:src="@{/js/join/checkId.js}"></script>
+    <script type="text/javascript" th:src="@{/js/join/checkEmail.js}"></script>
     <script type="text/javascript" th:src="@{/js/join/autoFormatBirth.js}"></script>
     <script type="text/javascript" th:src="@{/js/join/autoFormatPhone.js}"></script>
 </head>
@@ -65,12 +66,19 @@
                 <div id="checkBirthBlank" class="error_message">생년월일을 입력해주세요.</div>
             </div>
             <div class="join_email">
-                <label><strong>이메일&nbsp;</strong><small>*</small><span></span></label>
-                <div>
-                    <input type="text" placeholder="email@foryouth.com" id="joinEmail" name="userEmail">
+                <div class="join_email_left">
+                    <label><strong>이메일&nbsp;</strong><small>*</small></label>
+                    <div>
+                        <input type="text" placeholder="email@foryouth.com" id="joinEmail" name="userEmail">
+                    </div>
+                    <div id="emailError" class="error_message">올바르지 않은 이메일 형식입니다.</div>
+                    <div id="checkEmailBlank" class="error_message">이메일을 입력해주세요.</div>
                 </div>
-                <div id="emailError" class="error_message">올바르지 않은 이메일 형식입니다.</div>
-                <div id="checkEmailBlank" class="error_message">이메일을 입력해주세요.</div>
+                <div class="join_email_right">
+                    <button type="button" class="check_button" onclick="checkUserEmail()">중복 확인</button>
+                    <input type="text" hidden disabled id="checkClickBtn2" class="hidden_input" value="false">
+                </div>
+
             </div>
             <input type="hidden" name="agreedEventAlarm" th:value="${agreedEventAlarm}">
             <div>
