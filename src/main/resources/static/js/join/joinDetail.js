@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const checkClickBtn = document.getElementById("checkClickBtn");
+    const checkClickBtn2 = document.getElementById("checkClickBtn2");
 
     idError.style.display = "none";
     pwError.style.display = "none";
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     joinId.addEventListener("input", function() {
         checkIdBlank.style.display = "none";
         checkClickBtn.value = "false";
+        checkClickBtn2.value = "false";
 
         if(!idRegex.test(joinId.value)) {
             idError.style.display = "block";
@@ -188,6 +190,9 @@ document.addEventListener("DOMContentLoaded", function () {
             isValid = false;
         } else if(checkClickBtn.value === "false") {
             alert("아이디가 중복되는지 확인해주세요!");
+            isValid = false;
+        } else if(checkClickBtn2.value === "false") {
+            alert("이메일이 중복되는지 확인해주세요!");
             isValid = false;
         }
 
