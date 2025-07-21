@@ -27,5 +27,7 @@ public class User extends Base {
 
     private String userEmail;
 
+    private String provider;
+
     private Boolean agreedEventAlarm;
 }

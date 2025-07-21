@@ -15,6 +15,7 @@ public interface JoinService {
                 .userName(dto.getUserName())
                 .userBirth(dto.getUserBirth())
                 .userEmail(dto.getUserEmail())
+                .provider("normal")
                 .agreedEventAlarm(dto.getAgreedEventAlarm()).build();
 
         return userEntity;
