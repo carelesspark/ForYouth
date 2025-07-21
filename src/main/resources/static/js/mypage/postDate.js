@@ -2,12 +2,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const startInput = document.getElementById("startDate");
     const endInput = document.getElementById("endDate");
+    const period = document.getElementById("periodInput");
 
-    if(startInput) {
+    if(startInput && !startInput.value) {
         startInput.value = getToday();
     }
 
-    if(endInput) {
+    if(endInput && !endInput.value) {
         endInput.value = getToday();
     }
 
@@ -29,6 +30,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if(endInput) {
                 endInput.value = today;
+            }
+
+            if(period) {
+                period.value = months;
             }
         });
     });
