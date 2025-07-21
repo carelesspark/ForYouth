@@ -1,5 +1,6 @@
 package com.jhp.foryouth.join.service.impl;
 
+import com.jhp.foryouth.join.repository.CheckEmailRepository;
 import com.jhp.foryouth.join.repository.CheckIdRepository;
 import com.jhp.foryouth.join.repository.JoinUserAuthRepository;
 import com.jhp.foryouth.join.repository.JoinUserRepository;
@@ -22,6 +23,7 @@ public class JoinServiceImpl implements JoinService {
     private final JoinUserRepository joinUserRepository;
     private final JoinUserAuthRepository joinUserAuthRepository;
     private final CheckIdRepository checkIdRepository;
+    private final CheckEmailRepository checkEmailRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
@@ -29,6 +31,10 @@ public class JoinServiceImpl implements JoinService {
     public void join(UserDTO userDTO) {
         if(checkIdRepository.existsByUserId(userDTO.getUserId())) {
             throw new IllegalArgumentException("이미 존재하는 아이디입니다.");
+        }
+
+        if(checkEmailRepository.existsByUserEmail(userDTO.getUserEmail())) {
+            throw new IllegalArgumentException("이미 존재하는 이메일입니다.");
         }
 
         User userEntity = dtoToUserEntity(userDTO);
