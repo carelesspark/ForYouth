@@ -9,7 +9,7 @@ function checkUserId() {
         return;
     }
 
-    fetch(`/check-userid?userId=${encodeURIComponent(userId)}`)
+    fetch(`/check-userId?userId=${encodeURIComponent(userId)}`)
         .then(response => response.json())
         .then(data => {
             if(data.exists) {
