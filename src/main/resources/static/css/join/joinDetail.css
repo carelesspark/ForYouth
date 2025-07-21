@@ -71,6 +71,15 @@ form small {
     padding-top: 27px;
 }
 
+.join_email_left {
+    justify-items: left;
+}
+
+.join_email_right {
+    padding-left: 36px;
+    padding-top: 27px;
+}
+
 .join_pw {
     justify-items: left;
     margin-bottom: 15px;
@@ -92,7 +101,7 @@ form small {
 }
 
 .join_email {
-    justify-items: left;
+    display: flex;
     margin-bottom: 15px;
 }
 
