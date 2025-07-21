@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
            .then(data => {
                if(data.success) {
                    alert("비밀번호가 성공적으로 변경되었습니다.");
-                   changePwModal.style.display = "none";
+                   location.reload();
                } else {
                    alert("비밀번호 변경 실패: " + data.message);
                }
