@@ -1,11 +1,10 @@
 package com.jhp.foryouth.mypage.controller;
 
-import com.jhp.foryouth.board.entity.Free;
+import com.jhp.foryouth.board.entity.FreeBoard;
 import com.jhp.foryouth.board.service.FreeBoardService;
 import com.jhp.foryouth.login.config.CustomUserDetails;
 import com.jhp.foryouth.mypage.service.InterestsService;
 import com.jhp.foryouth.mypage.service.UserInfoService;
-import com.jhp.foryouth.mypage.service.impl.UserInfoServiceImpl;
 import com.jhp.foryouth.user.dto.KakaoDTO;
 import com.jhp.foryouth.user.dto.NaverDTO;
 import com.jhp.foryouth.user.dto.UserDTO;
@@ -122,7 +121,7 @@ public class MypageController {
         LocalDateTime start = (startDate != null) ? startDate.atStartOfDay() : null;
         LocalDateTime end = (startDate != null) ? endDate.atTime(LocalTime.MAX) : null;
 
-        Page<Free> postPage = freeBoardService.getPostsByUser(email, provider, keyword, start, end, page);
+        Page<FreeBoard> postPage = freeBoardService.getPostsByUser(email, provider, keyword, start, end, page);
 
 
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
