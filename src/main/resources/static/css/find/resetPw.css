@@ -61,12 +61,12 @@ form small {
 }
 
 .reset_pw {
-    justify-items: left;
+    text-align: left;
     margin-bottom: 15px;
 }
 
 .reset_pw_verify {
-    justify-items: left;
+    text-align: left;
     margin-bottom: 15px;
 }
 

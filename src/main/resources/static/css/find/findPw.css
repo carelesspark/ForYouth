@@ -50,17 +50,17 @@ form small {
 }
 
 .find_pw_name {
-    justify-items: left;
+    text-align: left;
     margin-bottom: 15px;
 }
 
 .find_pw_id {
-    justify-items: left;
+    text-align: left;
     margin-bottom: 15px;
 }
 
 .find_pw_email {
-    justify-items: left;
+    text-align: left;
     margin-bottom: 15px;
 }
 
@@ -74,7 +74,7 @@ form small {
 }
 
 .find_pw_authentication_code_left {
-    justify-items: left;
+    text-align: left;
 }
 
 .find_pw_authentication_code_right {

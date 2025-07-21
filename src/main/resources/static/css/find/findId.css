@@ -61,12 +61,12 @@ form small {
 }
 
 .find_id_name {
-    justify-items: left;
+    text-align: left;
     margin-bottom: 15px;
 }
 
 .find_id_email {
-    justify-items: left;
+    text-align: left;
     margin-bottom: 15px;
 }
 
