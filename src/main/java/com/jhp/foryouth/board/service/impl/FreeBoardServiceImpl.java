@@ -1,8 +1,11 @@
 package com.jhp.foryouth.board.service.impl;
 
 import com.jhp.foryouth.board.entity.FreeBoard;
+import com.jhp.foryouth.board.entity.FreeBoardComment;
+import com.jhp.foryouth.board.repository.FreeBoardCommentRepository;
 import com.jhp.foryouth.board.repository.FreeBoardRepository;
 import com.jhp.foryouth.board.service.FreeBoardService;
+import com.jhp.foryouth.mypage.dto.MyComment;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
@@ -21,10 +24,11 @@ import java.time.LocalDateTime;
 public class FreeBoardServiceImpl implements FreeBoardService {
 
     private final FreeBoardRepository freeBoardRepository;
+    private final FreeBoardCommentRepository freeBoardCommentRepository;
 
     @Override
     public Page<FreeBoard> getPostsByUser(String email, String provider, String keyword, LocalDateTime startDate, LocalDateTime endDate, int page) {
-        Pageable pageable = PageRequest.of(page, 10, Sort.by("regDate").descending());
+        Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "regDate"));
 
         String writerId = email;
 
@@ -42,6 +46,29 @@ public class FreeBoardServiceImpl implements FreeBoardService {
             }
 
             return freeBoardRepository.findByFilter(writerId, provider, keyword, startDate, endDate, pageable);
+        }
+    }
+
+    @Override
+    public Page<MyComment> getCommentsByUser(String email, String provider, String keyword, LocalDateTime startDate, LocalDateTime endDate, int page) {
+        Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "regDate"));
+
+        String writerId = email;
+
+        if(provider == null) {
+            provider = "normal";
+
+            if((keyword == null || keyword.isBlank()) && startDate == null && endDate == null) {
+                return freeBoardCommentRepository.findByWriterIdAndProvider(writerId, provider, pageable);
+            }
+
+            return freeBoardCommentRepository.findByFilter(writerId, provider, keyword, startDate, endDate, pageable);
+        } else {
+            if((keyword == null || keyword.isBlank()) && startDate == null && endDate == null) {
+                return freeBoardCommentRepository.findByWriterIdAndProvider(writerId, provider, pageable);
+            }
+
+            return freeBoardCommentRepository.findByFilter(writerId, provider, keyword, startDate, endDate, pageable);
         }
     }
 }
