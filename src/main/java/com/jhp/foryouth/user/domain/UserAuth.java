@@ -21,7 +21,7 @@ public class UserAuth extends Base {
 
     private String userPw;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_num", referencedColumnName = "num")
     private User user;
 
