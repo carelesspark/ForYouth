@@ -80,7 +80,6 @@
                             <tr>
                                 <th class="center" style="width: 60px;">번호</th>
                                 <th>제목</th>
-                                <th class="center" style="width: 120px;">작성자</th>
                                 <th class="center" style="width: 140px;">작성일</th>
                                 <th class="center" style="width: 80px;">조회수</th>
                             </tr>
@@ -90,9 +89,8 @@
                                 <td colspan="5" class="center">작성한 게시글이 없습니다 :)</td>
                             </tr>
                             <tr th:each="post, stat : ${postPage.content}">
-                                <td th:text="${stat.index + 1 + postPage.number * postPage.size}" class="center"></td>
+                                <td th:text="${postPage.totalElements - (postPage.number * postPage.size + stat.index)}" class="center"></td>
                                 <td class="post-title"><a href="#" th:text="${post.title}"></a></td>
-                                <td th:text="${post.writerId}" class="center"></td>
                                 <td th:text="${#temporals.format(post.regDate, 'yyyy-MM-dd')}" class="center"></td>
                                 <td th:text="${post.visitCount}" class="center"></td>
                             </tr>
@@ -101,18 +99,18 @@
                     </div>
                     <div class="pagination" th:if="${postPage.totalPages > 0}">
                         <a th:if="${postPage.hasPrevious()}"
-                           th:href="@{/mypage/post(page=${postPage.number - 1}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}">
+                           th:href="@{/mypage/post(period=${period}, page=${postPage.number - 1}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}">
                             &lt; 이전
                         </a>
 
-                        <span th:each="i : ${#numbers.sequence(0, postPage.totalPages - 1)}">
-                            <a th:href="@{/mypage/post(page=${i}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}"
-                               th:text="${i + 1}"
-                               th:class="${i == postPage.number} ? 'active' : ''"></a>
+                        <span th:each="i : ${#numbers.sequence(1, postPage.totalPages)}">
+                            <a th:href="@{/mypage/post(period=${period}, page=${i}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}"
+                               th:text="${i}"
+                               th:class="${i - 1 == postPage.number} ? 'active' : ''"></a>
                         </span>
 
                         <a th:if="${postPage.hasNext()}"
-                           th:href="@{/mypage/post(page=${postPage.number + 1}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}">
+                           th:href="@{/mypage/post(period=${period}, page=${postPage.number + 1}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}">
                             다음 &gt;
                         </a>
                     </div>
