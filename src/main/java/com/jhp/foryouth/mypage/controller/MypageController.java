@@ -1,8 +1,10 @@
 package com.jhp.foryouth.mypage.controller;
 
 import com.jhp.foryouth.board.entity.FreeBoard;
+import com.jhp.foryouth.board.entity.FreeBoardComment;
 import com.jhp.foryouth.board.service.FreeBoardService;
 import com.jhp.foryouth.login.config.CustomUserDetails;
+import com.jhp.foryouth.mypage.dto.MyComment;
 import com.jhp.foryouth.mypage.service.InterestsService;
 import com.jhp.foryouth.mypage.service.UserInfoService;
 import com.jhp.foryouth.user.dto.KakaoDTO;
@@ -91,7 +93,7 @@ public class MypageController {
     }
 
     @GetMapping("/post")
-    public String myPost(@RequestParam(defaultValue = "0") int page,
+    public String myPost(@RequestParam(defaultValue = "1") int page,
                          @RequestParam(required = false) String period,
                          @RequestParam(required = false) String keyword,
                          @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
@@ -108,7 +110,6 @@ public class MypageController {
         Object principal = authentication.getPrincipal();
         String email = null;
         String provider = null;
-        String userId = authentication.getName();
 
         if(principal instanceof CustomUserDetails customUser) {
             email = customUser.getEmail();
@@ -121,7 +122,9 @@ public class MypageController {
         LocalDateTime start = (startDate != null) ? startDate.atStartOfDay() : null;
         LocalDateTime end = (startDate != null) ? endDate.atTime(LocalTime.MAX) : null;
 
-        Page<FreeBoard> postPage = freeBoardService.getPostsByUser(email, provider, keyword, start, end, page);
+        int zeroBasedPage = Math.max(page - 1, 0);
+
+        Page<FreeBoard> postPage = freeBoardService.getPostsByUser(email, provider, keyword, start, end, zeroBasedPage);
 
 
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
@@ -138,5 +141,57 @@ public class MypageController {
         model.addAttribute("endDate", endDate);
 
         return "mypage/myPost";
+    }
+
+    @GetMapping("/comment")
+    public String myComment(@RequestParam(defaultValue = "1") int page,
+                            @RequestParam(required = false) String period,
+                            @RequestParam(required = false) String keyword,
+                            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+                            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
+                            Model model) {
+
+
+        log.info("내가 작성한 댓글 페이지");
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
+            return "login/loginMain";
+        }
+
+        Object principal = authentication.getPrincipal();
+        String email = null;
+        String provider = null;
+
+        if(principal instanceof CustomUserDetails customUser) {
+            email = customUser.getEmail();
+        } else if(authentication instanceof OAuth2AuthenticationToken oAuthToken) {
+            OAuth2User oAuth2User = (OAuth2User) principal;
+            email = (String) oAuth2User.getAttributes().get("email");
+            provider = oAuthToken.getAuthorizedClientRegistrationId();
+        }
+
+        LocalDateTime start = (startDate != null) ? startDate.atStartOfDay() : null;
+        LocalDateTime end = (startDate != null) ? endDate.atTime(LocalTime.MAX) : null;
+
+        int zeroBasedPage = Math.max(page - 1, 0);
+
+        Page<MyComment> commentPage = freeBoardService.getCommentsByUser(email, provider, keyword, start, end, zeroBasedPage);
+
+        model.addAttribute("pageTitle", "ForYouth 마이페이지");
+        model.addAttribute("cssPath", "/css/mypage/myComment.css");
+        model.addAttribute("jsPath", "/js/mypage/postDate.js");
+
+        model.addAttribute("isLogin", true);
+        model.addAttribute("commentPage", commentPage);
+        model.addAttribute("currentPage", commentPage.getNumber());
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("period", period);
+        model.addAttribute("startDate", startDate);
+        model.addAttribute("endDate", endDate);
+
+
+        return "mypage/myComment";
     }
 }
