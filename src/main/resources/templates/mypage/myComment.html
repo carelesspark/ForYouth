@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="card">
                     <h3>✏ 내가 작성한 댓글</h3>
-                    <p>게시글 &nbsp;<span>0</span></p>
+                    <p>댓글 &nbsp;<span th:text="${commentPage.totalElements}"></span></p>
                     <div class="option-box">
                         <form method="get" th:action="@{/mypage/comment}">
                             <input type="hidden" name="period" id="periodInput"/>
