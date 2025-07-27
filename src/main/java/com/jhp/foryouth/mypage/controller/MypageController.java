@@ -5,6 +5,7 @@ import com.jhp.foryouth.board.entity.FreeBoardComment;
 import com.jhp.foryouth.board.service.FreeBoardService;
 import com.jhp.foryouth.login.config.CustomUserDetails;
 import com.jhp.foryouth.mypage.dto.MyComment;
+import com.jhp.foryouth.mypage.dto.MyFavoriteComment;
 import com.jhp.foryouth.mypage.dto.MyFavoritePost;
 import com.jhp.foryouth.mypage.service.InterestsService;
 import com.jhp.foryouth.mypage.service.UserInfoService;
@@ -126,7 +127,7 @@ public class MypageController {
         int zeroBasedPage = Math.max(page - 1, 0);
 
         Page<FreeBoard> postPage = freeBoardService.getPostsByUser(email, provider, keyword, start, end, zeroBasedPage);
-
+        long count = postPage.getTotalElements();
 
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
         model.addAttribute("cssPath", "/css/mypage/myPost.css");
@@ -140,6 +141,7 @@ public class MypageController {
         model.addAttribute("period", period);
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);
+        model.addAttribute("count", count);
 
         return "mypage/myPost";
     }
@@ -179,6 +181,7 @@ public class MypageController {
         int zeroBasedPage = Math.max(page - 1, 0);
 
         Page<MyComment> commentPage = freeBoardService.getCommentsByUser(email, provider, keyword, start, end, zeroBasedPage);
+        long count = commentPage.getTotalElements();
 
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
         model.addAttribute("cssPath", "/css/mypage/myComment.css");
@@ -191,7 +194,7 @@ public class MypageController {
         model.addAttribute("period", period);
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);
-
+        model.addAttribute("count", count);
 
         return "mypage/myComment";
     }
@@ -230,8 +233,8 @@ public class MypageController {
 
         int zeroBasedPage = Math.max(page - 1, 0);
 
-
         Page<MyFavoritePost> likePostPage = freeBoardService.getPostsByUserLike(email, provider, keyword, start, end, zeroBasedPage);
+        long count = likePostPage.getTotalElements();
 
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
         model.addAttribute("cssPath", "/css/mypage/myFavoritePost.css");
@@ -244,8 +247,61 @@ public class MypageController {
         model.addAttribute("period", period);
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);
+        model.addAttribute("count", count);
 
 
         return "mypage/myFavoritePost";
+    }
+
+    @GetMapping("/like-comment")
+    public String myFavoriteComment(@RequestParam(defaultValue = "1") int page,
+                                    @RequestParam(required = false) String period,
+                                    @RequestParam(required = false) String keyword,
+                                    @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+                                    @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
+                                    Model model) {
+        
+        log.info("내가 좋아요 누른 댓글 페이지");
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
+            return "login/loginMain";
+        }
+
+        Object principal = authentication.getPrincipal();
+        String email = null;
+        String provider = null;
+
+        if(principal instanceof CustomUserDetails customUser) {
+            email = customUser.getEmail();
+        } else if(authentication instanceof OAuth2AuthenticationToken oAuthToken) {
+            OAuth2User oAuth2User = (OAuth2User) principal;
+            email = (String) oAuth2User.getAttributes().get("email");
+            provider = oAuthToken.getAuthorizedClientRegistrationId();
+        }
+
+        LocalDateTime start = (startDate != null) ? startDate.atStartOfDay() : null;
+        LocalDateTime end = (startDate != null) ? endDate.atTime(LocalTime.MAX) : null;
+
+        int zeroBasedPage = Math.max(page - 1, 0);
+
+        Page<MyFavoriteComment> likeCommentPage = freeBoardService.getCommentsByUserLike(email, provider, keyword, start, end, zeroBasedPage);
+        long count = likeCommentPage.getTotalElements();
+
+        model.addAttribute("pageTitle", "ForYouth 마이페이지");
+        model.addAttribute("cssPath", "/css/mypage/myFavoriteComment.css");
+        model.addAttribute("jsPath", "/js/mypage/postDate.js");
+
+        model.addAttribute("isLogin", true);
+        model.addAttribute("likeCommentPage", likeCommentPage);
+        model.addAttribute("currentPage", likeCommentPage.getNumber());
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("period", period);
+        model.addAttribute("startDate", startDate);
+        model.addAttribute("endDate", endDate);
+        model.addAttribute("count", count);
+
+        return "mypage/myFavoriteComment";
     }
 }
