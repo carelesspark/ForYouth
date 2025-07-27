@@ -37,10 +37,10 @@
             <div class="container">
                 <div class="card">
                     <h3>✏ 좋아요 누른 게시글</h3>
-                    <p>좋아요 &nbsp;<span th:text="${likePostPage.totalElements}"></span></p>
+                    <p>좋아요 &nbsp;<span th:text="${count}"></span></p>
                     <div class="option-box">
                         <form method="get" th:action="@{/mypage/like-post}">
-                            <input type="hidden" name="period" id="periodInput"/>
+                            <input type="hidden" name="period" id="periodInput" th:value="${period}"/>
                             <div class="date-buttons">
                                 <button type="button" data-months="0"
                                         th:classappend="${period} == '0' ? 'active' : ''">오늘
@@ -78,9 +78,9 @@
                         <table class="like-post-table">
                             <thead>
                             <tr>
-                                <th class="center" style="width: 60px;">번호</th>
+                                <th class="center" style="width: 40px;">번호</th>
                                 <th>제목</th>
-                                <th class="center" style="width: 140px;">작성자</th>
+                                <th class="center" style="width: 200px;">작성자</th>
                                 <th class="center" style="width: 80px;">작성일</th>
                             </tr>
                             </thead>

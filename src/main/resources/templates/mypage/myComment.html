@@ -37,10 +37,10 @@
             <div class="container">
                 <div class="card">
                     <h3>✏ 내가 작성한 댓글</h3>
-                    <p>댓글 &nbsp;<span th:text="${commentPage.totalElements}"></span></p>
+                    <p>댓글 &nbsp;<span th:text="${count}"></span></p>
                     <div class="option-box">
                         <form method="get" th:action="@{/mypage/comment}">
-                            <input type="hidden" name="period" id="periodInput"/>
+                            <input type="hidden" name="period" id="periodInput" th:value="${period}"/>
                             <div class="date-buttons">
                                 <button type="button" data-months="0"
                                         th:classappend="${period} == '0' ? 'active' : ''">오늘
@@ -81,7 +81,7 @@
                                 <th class="center" style="width: 40px;">번호</th>
                                 <th>댓글</th>
                                 <th class="center" style="width: 160px;">댓글단 글</th>
-                                <th class="center" style="width: 140px;">작성일</th>
+                                <th class="center" style="width: 80px;">작성일</th>
                                 <th class="center" style="width: 60px;">좋아요 수</th>
                             </tr>
                             </thead>
