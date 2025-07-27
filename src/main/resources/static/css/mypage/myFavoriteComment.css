@@ -1,0 +1,311 @@
+body {
+    margin: 0;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #f7fbfd;
+}
+
+.main-container {
+    max-width: 1400px;
+    min-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-section {
+    width: 17%;
+    height: 616px;
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0px;
+}
+
+.right-section {
+    width: 77.5%;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-style {
+    border-bottom-color: #f7fbfd;
+    padding: 0px 14px;
+    border-bottom-style: solid;
+    border-width: 6px;
+}
+
+.menu-style a {
+    font-size: 14pt;
+    display: inline-block;
+    font-weight: bold;
+    width: 93%;
+    margin: 10px 0px;
+    padding: 10px 8px;
+    text-decoration: none;
+    color: black;
+    border-radius: 7px;
+    transition: background-color 0.7s;
+}
+
+.menu-style a:hover {
+    background-color: #efefef;
+}
+
+.question-answer {
+    border-bottom-color: #f7fbfd;
+    padding: 0px 14px;
+}
+
+.question-answer a {
+    font-size: 14pt;
+    display: inline-block;
+    font-weight: bold;
+    width: 93%;
+    margin: 10px 0px;
+    padding: 10px 8px;
+    text-decoration: none;
+    color: black;
+    border-radius: 7px;
+    transition: background-color 0.7s;
+}
+
+.question-answer a:hover {
+    background-color: #efefef;
+}
+
+.sub-menu-style a {
+    font-size: 12pt;
+    display: inline-block;
+    font-weight: normal;
+    width: 93%;
+    padding: 10px 8px;
+    text-decoration: none;
+    color: black;
+    border-radius: 7px;
+    transition: background-color 0.7s;
+}
+
+.sub-menu-style a:hover {
+    background-color: #efefef;
+}
+
+.like-comment a {
+    color: #03a94d;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.card p {
+  margin: 25px 0;
+  font-size: 15px;
+  color: #949494;
+}
+
+.card span {
+    color: #03a94d;
+}
+
+.date-buttons button {
+    background-color: #f9f9f9;
+    color: #000000;
+    border: 1px solid #9f9f9f;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.date-buttons button:hover {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.date-buttons button.active {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.filter button {
+    background-color: white;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter button:hover {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid white;
+}
+
+.option-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.date-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.filter {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter input[type="date"],
+.filter input[type="text"] {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    font-family: none;
+    width: 180px;
+    transition: all 0.2s ease;
+}
+
+.filter input:focus {
+    border-color: #4a90e2;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.like-comment-wrapper {
+    max-width: 950px;
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+    height: 538px;
+    background: white;
+}
+
+.like-comment-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.like-comment-table thead {
+    background-color: #f2f6fc;
+}
+
+.like-comment-table th,
+.like-comment-table td {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.like-comment-table th {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.like-comment-table td {
+    font-size: 14px;
+    color: #555;
+    background-color: white;
+    transition: background-color 0.2s ease;
+}
+
+.like-comment-table tr:hover td {
+    background-color: #f9faff;
+}
+
+.comment-title {
+    color: #4a90e2;
+    font-weight: bold;
+}
+
+.like-comment-table td.center {
+    text-align: center;
+}
+
+.comment-title a {
+    text-decoration: none;
+    color: #555;
+    cursor: pointer;
+}
+
+.pagination {
+    max-width: 950px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 5px;
+    padding: 10px;
+    font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+}
+
+.pagination a {
+    background-color: white;
+    border: none;
+    color: #333;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 27px;
+}
+
+.pagination a:hover {
+    background-color: #4a90e2;
+    color: white;
+    border-color: #4a90e2;
+    font-weight: bold;
+}
+
+.pagination .active {
+    background-color: #4a90e2;
+    color: white;
+    border-color: #4a90e2;
+    font-weight: bold;
+}
+
+.pagination a[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
