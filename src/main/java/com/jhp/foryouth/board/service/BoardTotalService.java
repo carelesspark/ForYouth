@@ -7,5 +7,5 @@ import org.springframework.data.domain.Page;
 import java.time.LocalDateTime;
 
 public interface BoardTotalService {
-    Page<BookmarkRequest> getBookmarkByUser(String email, String provider, String category, int page, int size);
+    Page<BookmarkRequest> getBookmarkByUser(String email, String provider, String keyword, String category, LocalDateTime startDate, LocalDateTime endDate, int page);
 }
