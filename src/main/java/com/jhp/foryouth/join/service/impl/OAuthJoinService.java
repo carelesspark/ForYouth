@@ -2,8 +2,8 @@ package com.jhp.foryouth.join.service.impl;
 
 import com.jhp.foryouth.join.repository.JoinAuthKakaoRepository;
 import com.jhp.foryouth.join.repository.JoinAuthNaverRepository;
-import com.jhp.foryouth.user.domain.AuthKakao;
-import com.jhp.foryouth.user.domain.AuthNaver;
+import com.jhp.foryouth.user.entity.AuthKakao;
+import com.jhp.foryouth.user.entity.AuthNaver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

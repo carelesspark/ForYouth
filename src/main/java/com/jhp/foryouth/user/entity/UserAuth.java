@@ -1,4 +1,4 @@
-package com.jhp.foryouth.user.domain;
+package com.jhp.foryouth.user.entity;
 
 import com.jhp.foryouth.global.entity.Base;
 import jakarta.persistence.*;
@@ -11,15 +11,21 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class UserInterests {
+public class UserAuth extends Base {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long num;
 
-    private String interests;
+    private String userId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    private String userPw;
+
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_num", referencedColumnName = "num")
     private User user;
+
+    public void setUserPw(String userPw) {
+        this.userPw = userPw;
+    }
 }

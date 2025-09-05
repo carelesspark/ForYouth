@@ -1,6 +1,6 @@
 package com.jhp.foryouth.user.repository;
 
-import com.jhp.foryouth.user.domain.UserNaverInterests;
+import com.jhp.foryouth.user.entity.UserNaverInterests;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

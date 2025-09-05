@@ -1,7 +1,7 @@
 package com.jhp.foryouth.login.service;
 
 import com.jhp.foryouth.login.config.CustomUserDetails;
-import com.jhp.foryouth.user.domain.UserAuth;
+import com.jhp.foryouth.user.entity.UserAuth;
 import com.jhp.foryouth.user.repository.UserAuthRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

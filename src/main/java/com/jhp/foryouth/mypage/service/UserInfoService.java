@@ -1,10 +1,9 @@
 package com.jhp.foryouth.mypage.service;
 
-import com.jhp.foryouth.user.domain.*;
+import com.jhp.foryouth.user.entity.*;
 import com.jhp.foryouth.user.dto.KakaoDTO;
 import com.jhp.foryouth.user.dto.NaverDTO;
 import com.jhp.foryouth.user.dto.UserDTO;
-import lombok.With;
 
 public interface UserInfoService {
 

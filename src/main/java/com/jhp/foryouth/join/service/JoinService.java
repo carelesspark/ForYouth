@@ -1,7 +1,7 @@
 package com.jhp.foryouth.join.service;
 
-import com.jhp.foryouth.user.domain.User;
-import com.jhp.foryouth.user.domain.UserAuth;
+import com.jhp.foryouth.user.entity.User;
+import com.jhp.foryouth.user.entity.UserAuth;
 import com.jhp.foryouth.user.dto.UserDTO;
 
 public interface JoinService {

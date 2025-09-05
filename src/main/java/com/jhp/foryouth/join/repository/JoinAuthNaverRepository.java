@@ -1,6 +1,6 @@
 package com.jhp.foryouth.join.repository;
 
-import com.jhp.foryouth.user.domain.AuthNaver;
+import com.jhp.foryouth.user.entity.AuthNaver;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

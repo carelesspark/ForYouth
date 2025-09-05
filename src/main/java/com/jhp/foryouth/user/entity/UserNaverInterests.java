@@ -1,4 +1,4 @@
-package com.jhp.foryouth.user.domain;
+package com.jhp.foryouth.user.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class UserKakaoInterests {
+public class UserNaverInterests {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,6 @@ public class UserKakaoInterests {
     private String interests;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_kakao_num", referencedColumnName = "num")
-    private AuthKakao kakao;
+    @JoinColumn(name = "user_naver_num", referencedColumnName = "num")
+    private AuthNaver naver;
 }

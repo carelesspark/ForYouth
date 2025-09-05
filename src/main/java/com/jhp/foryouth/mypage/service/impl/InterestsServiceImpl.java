@@ -4,7 +4,7 @@ import com.jhp.foryouth.user.repository.UserInterestsRepository;
 import com.jhp.foryouth.user.repository.UserKakaoInterestsRepository;
 import com.jhp.foryouth.user.repository.UserNaverInterestsRepository;
 import com.jhp.foryouth.mypage.service.InterestsService;
-import com.jhp.foryouth.user.domain.*;
+import com.jhp.foryouth.user.entity.*;
 import com.jhp.foryouth.user.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

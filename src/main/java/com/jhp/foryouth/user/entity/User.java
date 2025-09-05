@@ -1,4 +1,4 @@
-package com.jhp.foryouth.user.domain;
+package com.jhp.foryouth.user.entity;
 
 import com.jhp.foryouth.global.entity.Base;
 import jakarta.persistence.Entity;

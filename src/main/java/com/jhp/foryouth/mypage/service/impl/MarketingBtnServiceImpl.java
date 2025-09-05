@@ -1,16 +1,14 @@
 package com.jhp.foryouth.mypage.service.impl;
 
 import com.jhp.foryouth.mypage.service.MarketingBtnService;
-import com.jhp.foryouth.mypage.service.UserInfoService;
-import com.jhp.foryouth.user.domain.AuthKakao;
-import com.jhp.foryouth.user.domain.AuthNaver;
-import com.jhp.foryouth.user.domain.UserAuth;
+import com.jhp.foryouth.user.entity.AuthKakao;
+import com.jhp.foryouth.user.entity.AuthNaver;
+import com.jhp.foryouth.user.entity.UserAuth;
 import com.jhp.foryouth.user.repository.KakaoUserRepository;
 import com.jhp.foryouth.user.repository.NaverUserRepository;
 import com.jhp.foryouth.user.repository.UserAuthRepository;
 import com.jhp.foryouth.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

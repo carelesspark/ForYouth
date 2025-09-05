@@ -1,6 +1,6 @@
 package com.jhp.foryouth.mypage.service.impl;
 
-import com.jhp.foryouth.user.domain.*;
+import com.jhp.foryouth.user.entity.*;
 import com.jhp.foryouth.user.repository.*;
 import com.jhp.foryouth.mypage.service.UserInfoService;
 import com.jhp.foryouth.user.dto.KakaoDTO;

@@ -1,6 +1,6 @@
 package com.jhp.foryouth.user.repository;
 
-import com.jhp.foryouth.user.domain.UserAuth;
+import com.jhp.foryouth.user.entity.UserAuth;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

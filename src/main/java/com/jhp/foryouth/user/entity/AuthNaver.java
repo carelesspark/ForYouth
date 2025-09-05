@@ -1,5 +1,6 @@
-package com.jhp.foryouth.user.domain;
+package com.jhp.foryouth.user.entity;
 
+import com.jhp.foryouth.global.entity.Base;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,9 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
 @ToString
-public class WithdrawUsers {
+public class AuthNaver extends Base {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,14 @@ public class WithdrawUsers {
 
     private String name;
 
-    private String withdrawReason;
+    private String birthday;
+
+    private String birthyear;
+
+    private String mobile;
 
     private String provider;
+
+    @Builder.Default
+    private Boolean agreedEventAlarm = false;
 }

@@ -1,6 +1,6 @@
 package com.jhp.foryouth.login.config;
 
-import com.jhp.foryouth.user.domain.UserAuth;
+import com.jhp.foryouth.user.entity.UserAuth;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
