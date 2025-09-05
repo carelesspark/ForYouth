@@ -1,7 +1,6 @@
 package com.jhp.foryouth.board.entity;
 
 import com.jhp.foryouth.global.entity.Base;
-import com.jhp.foryouth.user.domain.User;
 import jakarta.persistence.*;
 import lombok.*;
 
