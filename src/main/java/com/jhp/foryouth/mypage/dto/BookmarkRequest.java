@@ -1,6 +1,7 @@
 package com.jhp.foryouth.mypage.dto;
 
 import com.jhp.foryouth.board.entity.PostType;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -16,6 +17,7 @@ public class BookmarkRequest {
     private LocalDateTime regDate;
     private Long visitCount;
 
+    @Builder
     public BookmarkRequest(Long bookmarkId, Long postId, PostType postType, String category, String title, String writerId, LocalDateTime regDate, Long visitCount) {
         this.bookmarkId = bookmarkId;
         this.postId = postId;
