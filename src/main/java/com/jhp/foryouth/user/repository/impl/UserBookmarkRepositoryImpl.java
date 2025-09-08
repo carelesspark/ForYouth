@@ -22,7 +22,7 @@ public class UserBookmarkRepositoryImpl implements UserBookmarkRepositoryCustom 
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Page<UserBookmark> findBookmarkByConditions(String userId, String provider, String keyword, String category, LocalDateTime startDate, LocalDateTime endDate, Pageable pageable) {
+    public Page<UserBookmark> findBookmarkByConditions(String userId, String provider, String category, Pageable pageable) {
         List<UserBookmark> content = queryFactory
                 .selectFrom(userBookmark)
                 .where(userIdEq(userId),
