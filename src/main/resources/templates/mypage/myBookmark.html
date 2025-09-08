@@ -37,63 +37,59 @@
             <div class="container">
                 <div class="card">
                     <h3>✏ 즐겨찾기 목록</h3>
-                    <p>좋아요 &nbsp;<span th:text="${count}"></span></p>
+                    <p>즐겨찾기 &nbsp;<span th:text="${count}"></span></p>
                     <div class="category-box">
                         <div class="category-buttons">
-                            <button>취업지원</button>
-                            <button>주거지원</button>
-                            <button>금융지원</button>
-                            <button>복지혜택</button>
-                            <button>교육/자격증</button>
-                            <button>지역소식</button>
+                            <button class="category-btn" data-category="">전체</button>
+                            <button class="category-btn" data-category="EDUCATION">교육/자격증</button>
+                            <button class="category-btn" data-category="EMPLOYMENT_SUPPORT">취업지원</button>
+                            <button class="category-btn" data-category="FINANCIAL_SUPPORT">금융지원</button>
+                            <button class="category-btn" data-category="HOUSING_SUPPORT">주거지원</button>
+                            <button class="category-btn" data-category="LOCAL_NEWS">지역소식</button>
+                            <button class="category-btn" data-category="WELFARE_BENEFIT">복지혜택</button>
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="bookmark-wrapper">
-                        <table class="bookmark-table">
-                            <thead>
-                            <tr>
-                                <th class="center" style="width: 40px;">번호</th>
-                                <th>댓글</th>
-                                <th class="center" style="width: 160px;">댓글단 글</th>
-                                <th class="center" style="width: 200px;">작성자</th>
-                                <th class="center" style="width: 80px;">작성일</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:if="${likeCommentPage.content.isEmpty()}">
-                                <td colspan="5" class="center">좋아요를 누른 댓글이 없습니다 :)</td>
-                            </tr>
-                            <tr th:each="comment, stat : ${likeCommentPage.content}">
-                                <td th:text="${likeCommentPage.totalElements - (likeCommentPage.number * likeCommentPage.size + stat.index)}" class="center"></td>
-                                <td th:text="${comment.comment}" class="center"></td>
-                                <td class="post-title"><a href="#" th:text="${comment.postTitle}"></a></td>
-                                <td th:text="${comment.writerId}" class="center"></td>
-                                <td th:text="${#temporals.format(comment.regDate, 'yyyy-MM-dd')}" class="center"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="pagination" th:if="${likeCommentPage.totalPages > 0}">
-                        <a th:if="${likeCommentPage.hasPrevious()}"
-                           th:href="@{/mypage/like-comment(period=${period}, page=${likeCommentPage.number - 1}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}">
-                            &lt; 이전
-                        </a>
+                <div id="bookmarkFragment" th:fragment="bookmarkFragment">
+                    <div class="card">
+                        <div class="bookmark-wrapper">
+                            <table class="bookmark-table">
+                                <thead>
+                                <tr>
+                                    <th class="center" style="width: 40px;">번호</th>
+                                    <th class="center" style="width: 60px;">카테고리</th>
+                                    <th>제목</th>
+                                    <th class="center" style="width: 100px;">작성자</th>
+                                    <th class="center" style="width: 80px;">작성일</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:if="${bookmark.content.isEmpty()}">
+                                    <td colspan="5" class="center">즐겨찾기한 게시글이 없습니다 :)</td>
+                                </tr>
+                                <tr th:each="post, stat : ${bookmark.content}">
+                                    <td th:text="${bookmark.totalElements - (bookmark.number * bookmark.size + stat.index)}"
+                                        class="center"></td>
+                                    <td th:text="${post.postType}" class="center"></td>
+                                    <td class="post-title"><a href="#" th:text="${post.title}"></a></td>
+                                    <td th:text="${post.writerId}" class="center"></td>
+                                    <td th:text="${#temporals.format(post.regDate, 'yyyy-MM-dd')}"
+                                        class="center"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pagination" th:if="${bookmark.totalPages > 0}">
+                            <a th:if="${bookmark.hasPrevious()}" class="page-link" th:data-page="${bookmark.number}">&lt; 이전</a>
 
-                        <span th:each="i : ${#numbers.sequence(1, likeCommentPage.totalPages)}">
-                            <a th:href="@{/mypage/like-comment(period=${period}, page=${i}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}"
-                               th:text="${i}"
-                               th:class="${i - 1 == likeCommentPage.number} ? 'active' : ''"></a>
-                        </span>
+                            <span th:each="i : ${#numbers.sequence(1, bookmark.totalPages)}">
+                                <a class="page-link" th:data-page="${i}" th:text="${i}" th:classappend="${i == bookmark.number + 1} ? 'active' : ''"></a>
+                            </span>
 
-                        <a th:if="${likeCommentPage.hasNext()}"
-                           th:href="@{/mypage/like-comment(period=${period}, page=${likeCommentPage.number + 1}, keyword=${keyword}, startDate=${startDate}, endDate=${endDate})}">
-                            다음 &gt;
-                        </a>
+                            <a th:if="${bookmark.hasNext()}" class="page-link" th:data-page="${bookmark.number + 2}">다음 &gt;</a>
+                        </div>
                     </div>
                 </div>
-                <div></div>
             </div>
         </div>
     </main>
