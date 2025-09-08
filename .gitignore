@@ -20,6 +20,7 @@ bin/
 ### IntelliJ IDEA ###
 application.properties
 application.yml
+src/main/generated/
 .idea
 .env
 *.iws
