@@ -6,7 +6,6 @@ import com.jhp.foryouth.mypage.dto.BookmarkRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -56,7 +55,7 @@ public class GetBookmarkController {
 
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
         model.addAttribute("cssPath", "/css/mypage/myBookmark.css");
-        model.addAttribute("jsPath", "/js/mypage/postDate.js");
+        model.addAttribute("jsPath", "/js/mypage/myBookmark.js");
 
         model.addAttribute("isLogin", true);
         model.addAttribute("bookmark", bookmark);
@@ -64,6 +63,48 @@ public class GetBookmarkController {
         model.addAttribute("count", count);
 
         return "mypage/myBookmark";
+    }
+
+    @GetMapping("/bookmark/fragments")
+    public String getBookmarkFragment(@RequestParam(required = false) String category,
+                                      @RequestParam(defaultValue = "1") int page, Model model) {
+        log.info("내가 북마크 해놓은 혜택 게시글 - 비동기 처리(Fragment)");
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
+            return "login/loginMain";
+        }
+
+        Object principal = authentication.getPrincipal();
+        String email = null;
+        String provider = null;
+
+        if(principal instanceof CustomUserDetails customUser) {
+            email = customUser.getEmail();
+        } else if(authentication instanceof OAuth2AuthenticationToken oAuthToken) {
+            OAuth2User oAuth2User = (OAuth2User) principal;
+            email = (String) oAuth2User.getAttributes().get("email");
+            provider = oAuthToken.getAuthorizedClientRegistrationId();
+        }
+
+        int zeroBasedPage = Math.max(page - 1, 0);
+
+        Page<BookmarkRequest> bookmark = boardTotalService.getBookmarkByUser(email, provider, category, zeroBasedPage);
+        long count = bookmark.getTotalElements();
+
+        model.addAttribute("bookmark", bookmark);
+
+        model.addAttribute("pageTitle", "ForYouth 마이페이지");
+        model.addAttribute("cssPath", "/css/mypage/myBookmark.css");
+        model.addAttribute("jsPath", "/js/mypage/myBookmark.js");
+
+        model.addAttribute("isLogin", true);
+        model.addAttribute("bookmark", bookmark);
+        model.addAttribute("currentPage", bookmark.getNumber());
+        model.addAttribute("count", count);
+
+        return "mypage/myBookmark :: #bookmarkFragment";
     }
 
 }
