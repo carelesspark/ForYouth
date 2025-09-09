@@ -29,10 +29,6 @@ public class WelfareBenefitPost extends Base {
 
     private String sourceUrl;
 
-    private LocalDateTime startDate;
-
-    private LocalDateTime endDate;
-
     private String region;
 
     private int visitCount;
