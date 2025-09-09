@@ -57,7 +57,7 @@
                                 <thead>
                                 <tr>
                                     <th class="center" style="width: 40px;">번호</th>
-                                    <th class="center" style="width: 60px;">카테고리</th>
+                                    <th class="center" style="width: 80px;">카테고리</th>
                                     <th>제목</th>
                                     <th class="center" style="width: 100px;">작성자</th>
                                     <th class="center" style="width: 80px;">작성일</th>
@@ -70,7 +70,7 @@
                                 <tr th:each="post, stat : ${bookmark.content}">
                                     <td th:text="${bookmark.totalElements - (bookmark.number * bookmark.size + stat.index)}"
                                         class="center"></td>
-                                    <td th:text="${post.postType}" class="center"></td>
+                                    <td th:text="${post.category}" class="center"></td>
                                     <td class="post-title"><a href="#" th:text="${post.title}"></a></td>
                                     <td th:text="${post.writerId}" class="center"></td>
                                     <td th:text="${#temporals.format(post.regDate, 'yyyy-MM-dd')}"
