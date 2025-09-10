@@ -307,4 +307,36 @@ public class MypageController {
 
         return "mypage/myFavoriteComment";
     }
+
+    @GetMapping("/qna")
+    public String myPageQnA(Model model) {
+
+        log.info("Q&A 페이지");
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
+            return "login/loginMain";
+        }
+
+        Object principal = authentication.getPrincipal();
+        String email = null;
+        String provider = null;
+
+        if(principal instanceof CustomUserDetails customUser) {
+            email = customUser.getEmail();
+        } else if(authentication instanceof OAuth2AuthenticationToken oAuthToken) {
+            OAuth2User oAuth2User = (OAuth2User) principal;
+            email = (String) oAuth2User.getAttributes().get("email");
+            provider = oAuthToken.getAuthorizedClientRegistrationId();
+        }
+
+        model.addAttribute("pageTitle", "ForYouth 마이페이지");
+        model.addAttribute("cssPath", "/css/mypage/myPageQnA.css");
+        model.addAttribute("jsPath", "/js/mypage/myPageQnA.js");
+
+        model.addAttribute("isLogin", true);
+
+        return "mypage/myPageQnA";
+    }
 }
