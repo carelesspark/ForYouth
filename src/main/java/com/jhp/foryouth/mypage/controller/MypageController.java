@@ -10,6 +10,7 @@ import com.jhp.foryouth.mypage.dto.MyComment;
 import com.jhp.foryouth.mypage.dto.MyFavoriteComment;
 import com.jhp.foryouth.mypage.dto.MyFavoritePost;
 import com.jhp.foryouth.mypage.service.InterestsService;
+import com.jhp.foryouth.mypage.service.QuestionService;
 import com.jhp.foryouth.mypage.service.UserInfoService;
 import com.jhp.foryouth.user.dto.KakaoDTO;
 import com.jhp.foryouth.user.dto.NaverDTO;
@@ -25,6 +26,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,6 +44,7 @@ public class MypageController {
     private final InterestsService interestsService;
     private final FreeBoardService freeBoardService;
     private final BoardTotalService boardTotalService;
+    private final QuestionService questionService;
 
     @GetMapping("/user")
     public String mypageMain(Model model) {
@@ -336,6 +339,33 @@ public class MypageController {
         model.addAttribute("jsPath", "/js/mypage/myPageQnA.js");
 
         model.addAttribute("isLogin", true);
+
+        return "mypage/myPageQnA";
+    }
+
+    @PostMapping("/qna/send")
+    public String updateQuestion(@RequestParam String title, @RequestParam String content) {
+        log.info("문의사항 전송");
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
+            return "login/loginMain";
+        }
+
+        Object principal = authentication.getPrincipal();
+        String email = null;
+        String provider = null;
+
+        if(principal instanceof CustomUserDetails customUser) {
+            email = customUser.getEmail();
+        } else if(authentication instanceof OAuth2AuthenticationToken oAuthToken) {
+            OAuth2User oAuth2User = (OAuth2User) principal;
+            email = (String) oAuth2User.getAttributes().get("email");
+            provider = oAuthToken.getAuthorizedClientRegistrationId();
+        }
+
+        questionService.updateQuestion(email, provider, title, content);
 
         return "mypage/myPageQnA";
     }
