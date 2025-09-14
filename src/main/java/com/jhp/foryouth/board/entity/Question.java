@@ -33,4 +33,9 @@ public class Question extends Base {
 
     @OneToOne(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Answer answer;
+
+    @PrePersist
+    public void setDefaultStatus() {
+        this.questionStatus = QuestionStatus.NO;
+    }
 }
