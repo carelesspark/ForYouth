@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -344,7 +345,7 @@ public class MypageController {
     }
 
     @PostMapping("/qna/send")
-    public String updateQuestion(@RequestParam String title, @RequestParam String content) {
+    public String updateQuestion(@RequestParam String title, @RequestParam String content, RedirectAttributes redirectAttributes) {
         log.info("문의사항 전송");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -365,8 +366,10 @@ public class MypageController {
             provider = oAuthToken.getAuthorizedClientRegistrationId();
         }
 
-        questionService.updateQuestion(email, provider, title, content);
+        questionService.saveQuestion(email, provider, title, content);
 
-        return "mypage/myPageQnA";
+        redirectAttributes.addFlashAttribute("message", "문의사항이 성공적으로 전송되었습니다.");
+
+        return "redirect:/mypage/myPageQnA";
     }
 }
