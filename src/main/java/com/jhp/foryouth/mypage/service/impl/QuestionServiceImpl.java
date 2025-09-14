@@ -18,7 +18,7 @@ public class QuestionServiceImpl implements QuestionService {
     private final QuestionRepository questionRepository;
 
     @Override
-    public void updateQuestion(String writerId, String provider, String title, String content) {
+    public void saveQuestion(String writerId, String provider, String title, String content) {
         String writerProvider = (provider == null) ? "normal" : provider;
 
         Question question = Question.builder()
@@ -26,7 +26,6 @@ public class QuestionServiceImpl implements QuestionService {
                         .writerProvider(writerProvider)
                         .title(title)
                         .content(content)
-                        .questionStatus(QuestionStatus.NO)
                         .build();
 
         questionRepository.save(question);
