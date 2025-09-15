@@ -370,6 +370,6 @@ public class MypageController {
 
         redirectAttributes.addFlashAttribute("message", "문의사항이 성공적으로 전송되었습니다.");
 
-        return "redirect:/mypage/myPageQnA";
+        return "redirect:/mypage/qna";
     }
 }
