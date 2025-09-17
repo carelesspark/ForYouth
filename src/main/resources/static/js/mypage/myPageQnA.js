@@ -28,4 +28,35 @@ document.addEventListener("DOMContentLoaded", function() {
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
     });
+
+    const replyModal = document.getElementById('replyModal');
+    const openReplyBtn = document.getElementById('replyCheckBtn');
+    const closeReplyBtn = document.querySelector('.close-reply-btn');
+
+    openReplyBtn.addEventListener('click', () => {
+        replyModal.style.display = 'block';
+    });
+
+    closeReplyBtn.addEventListener('click', () => {
+        replyModal.style.display = 'none';
+    });
+
+    const replyModalContent = document.getElementById('qnaTableFragment');
+
+    replyModalContent.addEventListener('click', function(event) {
+        if(event.target.classList.contains('page-link')) {
+            event.preventDefault();
+            const page = event.target.dataset.page;
+            fetchQnaFragment(page);
+        }
+    });
+
+    function fetchQnaFragment(page) {
+        fetch(`/mypage/qna/fragments?page=${page}`)
+            .then(response => response.text())
+            .then(html => {
+                replyModalContent.innerHTML = html;
+            })
+            .catch(error => console.error('비동기 처리 에러 : ', error));
+    }
 });
