@@ -1,11 +1,9 @@
 package com.jhp.foryouth.mypage.controller;
 
 import com.jhp.foryouth.board.entity.FreeBoard;
-import com.jhp.foryouth.board.entity.FreeBoardComment;
 import com.jhp.foryouth.board.service.BoardTotalService;
 import com.jhp.foryouth.board.service.FreeBoardService;
 import com.jhp.foryouth.login.config.CustomUserDetails;
-import com.jhp.foryouth.mypage.dto.BookmarkRequest;
 import com.jhp.foryouth.mypage.dto.MyComment;
 import com.jhp.foryouth.mypage.dto.MyFavoriteComment;
 import com.jhp.foryouth.mypage.dto.MyFavoritePost;
@@ -310,66 +308,5 @@ public class MypageController {
         model.addAttribute("count", count);
 
         return "mypage/myFavoriteComment";
-    }
-
-    @GetMapping("/qna")
-    public String myPageQnA(Model model) {
-
-        log.info("Q&A 페이지");
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
-            return "login/loginMain";
-        }
-
-        Object principal = authentication.getPrincipal();
-        String email = null;
-        String provider = null;
-
-        if(principal instanceof CustomUserDetails customUser) {
-            email = customUser.getEmail();
-        } else if(authentication instanceof OAuth2AuthenticationToken oAuthToken) {
-            OAuth2User oAuth2User = (OAuth2User) principal;
-            email = (String) oAuth2User.getAttributes().get("email");
-            provider = oAuthToken.getAuthorizedClientRegistrationId();
-        }
-
-        model.addAttribute("pageTitle", "ForYouth 마이페이지");
-        model.addAttribute("cssPath", "/css/mypage/myPageQnA.css");
-        model.addAttribute("jsPath", "/js/mypage/myPageQnA.js");
-
-        model.addAttribute("isLogin", true);
-
-        return "mypage/myPageQnA";
-    }
-
-    @PostMapping("/qna/send")
-    public String updateQuestion(@RequestParam String title, @RequestParam String content, RedirectAttributes redirectAttributes) {
-        log.info("문의사항 전송");
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if(authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
-            return "login/loginMain";
-        }
-
-        Object principal = authentication.getPrincipal();
-        String email = null;
-        String provider = null;
-
-        if(principal instanceof CustomUserDetails customUser) {
-            email = customUser.getEmail();
-        } else if(authentication instanceof OAuth2AuthenticationToken oAuthToken) {
-            OAuth2User oAuth2User = (OAuth2User) principal;
-            email = (String) oAuth2User.getAttributes().get("email");
-            provider = oAuthToken.getAuthorizedClientRegistrationId();
-        }
-
-        questionService.saveQuestion(email, provider, title, content);
-
-        redirectAttributes.addFlashAttribute("message", "문의사항이 성공적으로 전송되었습니다.");
-
-        return "redirect:/mypage/qna";
     }
 }
