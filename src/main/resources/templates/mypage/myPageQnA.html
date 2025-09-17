@@ -40,6 +40,7 @@
                     <p>청년 정책이나 서비스 이용에 대해 궁금한 점이 있으신가요? 자주 묻는 질문을 확인하시거나, 직접 문의를 남겨주세요.</p>
                     <div class="qna-action-box">
                         <button id="qnaBtn" class="modal-open-btn">관리자에게 문의하기</button>
+                        <button id="replyCheckBtn" class="reply-check-btn">문의사항 상태 확인</button>
                     </div>
                 </div>
 
@@ -93,6 +94,56 @@
                     </div>
                     <button type="submit" class="submit-btn">제출하기</button>
                 </form>
+            </div>
+        </div>
+
+        <div id="replyModal" class="modal">
+            <div class="modal-content large"> <span class="close-reply-btn">&times;</span>
+                <h2>문의 내역 확인</h2>
+                <div id="qnaTableFragment" th:fragment="qnaTableFragment">
+                    <div class="reply-table-wrapper">
+                        <table class="reply-table">
+                            <thead>
+                            <tr>
+                                <th class="center" style="width: 10%;">글 번호</th>
+                                <th class="center" style="width: 40%;">문의 제목</th>
+                                <th class="center" style="width: 15%;">작성일</th>
+                                <th class="center" style="width: 20%;">답변 유무</th>
+                                <th class="center" style="width: 15%;">문의사항 확인</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:if="${qnaList.isEmpty()}">
+                                    <td colspan="5">작성한 문의 내역이 없습니다.</td>
+                                </tr>
+                                <tr th:each="qna, stat : ${qnaList}">
+                                    <td th:text="${qnaPage.totalElements - (qnaPage.number * qnaPage.size + stat.index)}" class="center">1</td>
+                                    <td class="qna-title center" th:text="${qna.title}"></td>
+                                    <td th:text="${#temporals.format(qna.regDate, 'yyyy-MM-dd')}" class="center"></td>
+                                    <td>
+                                    <span class="status-badge center"
+                                          th:text="${qna.questionStatus.displayName}"
+                                          th:classappend="${qna.questionStatus.name() == 'YES'} ? 'status-completed' : 'status-pending'">
+                                    </span>
+                                    </td>
+                                    <td>
+                                        <button class="details-btn" th:data-qna-id="${qna.questionId}">상세보기</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" th:if="${qnaPage != null and qnaPage.totalPages > 0}">
+                        <a th:if="${qnaPage.hasPrevious()}" class="page-link" th:data-page="${qnaPage.number - 1}">&lt; 이전</a>
+
+                        <span th:each="i : ${#numbers.sequence(1, qnaPage.totalPages)}">
+                            <a class="page-link" th:data-page="${i - 1}" th:text="${i}"
+                               th:classappend="${i - 1 == qnaPage.number} ? active : ''"></a>
+                        </span>
+
+                        <a th:if="${qnaPage.hasNext()}" class="page-link" th:data-page="${qnaPage.number + 1}">다음 &gt;</a>
+                    </div>
+                </div>
             </div>
         </div>
     <script th:inline="javascript">
