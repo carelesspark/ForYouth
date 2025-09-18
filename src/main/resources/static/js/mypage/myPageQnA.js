@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if(target.classList.contains('page-link')) {
             event.preventDefault();
-            const page = event.target.dataset.page;
+            const page = target.dataset.page;
             fetchQnaFragment(page);
         }
 
