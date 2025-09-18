@@ -41,16 +41,8 @@ public class QuestionServiceImpl implements QuestionService {
 
         Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "regDate"));
 
-        Page<Question> questionPage = questionRepository.findByWriterIdAndWriterProviderOrderByRegDateDesc(writerId, writerProvider, pageable);
+        Page<Question> questionPage = questionRepository.findQuestionsWithAnswers(writerId, writerProvider, pageable);
 
-        return questionPage.map(question ->
-                QuestionRequest.builder()
-                        .questionId(question.getNum())
-                        .writerId(question.getWriterId())
-                        .title(question.getTitle())
-                        .content(question.getContent())
-                        .questionStatus(question.getQuestionStatus())
-                        .regDate(question.getRegDate())
-                        .build());
+        return questionPage.map(QuestionRequest::new);
     }
 }
