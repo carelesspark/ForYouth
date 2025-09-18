@@ -49,14 +49,9 @@ public class GetQnaController {
             provider = oAuthToken.getAuthorizedClientRegistrationId();
         }
 
-        Page<QuestionRequest> qnaPage = questionService.findQuestionsByUser(email, provider, 0);
-
         model.addAttribute("pageTitle", "ForYouth 마이페이지");
         model.addAttribute("cssPath", "/css/mypage/myPageQnA.css");
         model.addAttribute("jsPath", "/js/mypage/myPageQnA.js");
-
-        model.addAttribute("qnaPage", qnaPage);
-        model.addAttribute("qnaList", qnaPage.getContent());
 
         model.addAttribute("isLogin", true);
 
