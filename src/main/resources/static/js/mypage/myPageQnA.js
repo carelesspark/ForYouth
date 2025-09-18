@@ -17,37 +17,43 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    const modal = document.getElementById('qnaModal');
-    const openBtn = document.getElementById('qnaBtn');
-    const closeBtn = document.querySelector('.close-btn');
-
-    openBtn.addEventListener('click', () => {
-        modal.style.display = 'block';
-    });
-
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
+    const qnaModal = document.getElementById('qnaModal');
     const replyModal = document.getElementById('replyModal');
+    const openQnaBtn = document.getElementById('qnaBtn');
     const openReplyBtn = document.getElementById('replyCheckBtn');
-    const closeReplyBtn = document.querySelector('.close-reply-btn');
+    const closeBtns = document.querySelectorAll('.close-btn');
 
+    openQnaBtn.addEventListener('click', () => qnaModal.style.display = 'block');
     openReplyBtn.addEventListener('click', () => {
+        fetchQnaFragment(0);
         replyModal.style.display = 'block';
     });
 
-    closeReplyBtn.addEventListener('click', () => {
-        replyModal.style.display = 'none';
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            qnaModal.style.display = 'none';
+            replyModal.style.display = 'none';
+        });
     });
 
     const replyModalContent = document.getElementById('qnaTableFragment');
 
     replyModalContent.addEventListener('click', function(event) {
-        if(event.target.classList.contains('page-link')) {
+        const target = event.target;
+
+        if(target.classList.contains('page-link')) {
             event.preventDefault();
             const page = event.target.dataset.page;
             fetchQnaFragment(page);
+        }
+
+        if(target.classList.contains('details-btn')) {
+            const targetSelector = target.dataset.target;
+            const detailRow = document.querySelector(targetSelector);
+            if(detailRow) {
+                const isActive = detailRow.classList.toggle('active');
+                target.textContent = isActive ? '숨기기' : '상세보기';
+            }
         }
     });
 
@@ -59,4 +65,5 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error('비동기 처리 에러 : ', error));
     }
+
 });
