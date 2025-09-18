@@ -1,7 +1,6 @@
 package com.jhp.foryouth.user.repository;
 
 import com.jhp.foryouth.board.entity.Question;
-import com.jhp.foryouth.mypage.dto.QuestionRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
