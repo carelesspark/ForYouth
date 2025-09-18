@@ -113,11 +113,11 @@
                             </tr>
                             </thead>
                             <tbody id="qna-accordion-body">
-                                <tr th:if="${qnaList.isEmpty()}">
+                                <tr th:if="${qnaList == null or #lists.isEmpty(qnaList)}">
                                     <td colspan="5">작성한 문의 내역이 없습니다.</td>
                                 </tr>
                                 <th:block th:each="qna, stat : ${qnaList}">
-                                    <tr th:each="qna, stat : ${qnaList}">
+                                    <tr>
                                         <td th:text="${qnaPage.totalElements - (qnaPage.number * qnaPage.size + stat.index)}" class="center"></td>
                                         <td class="qna-title center" th:text="${qna.title}"></td>
                                         <td th:text="${#temporals.format(qna.regDate, 'yyyy-MM-dd')}" class="center"></td>
@@ -128,7 +128,7 @@
                                         </span>
                                         </td>
                                         <td>
-                                            <button class="details-btn" th:data-qna-id="${qna.questionId}">상세보기</button>
+                                            <button class="details-btn" th:data-target="'#qna-detail-' + ${qna.questionId}">상세보기</button>
                                         </td>
                                     </tr>
                                     <tr class="qna-detail-row" th:id="'qna-detail-' + ${qna.questionId}">
