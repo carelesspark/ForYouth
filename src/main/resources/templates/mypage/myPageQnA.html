@@ -98,7 +98,7 @@
         </div>
 
         <div id="replyModal" class="modal">
-            <div class="modal-content large"> <span class="close-reply-btn">&times;</span>
+            <div class="modal-content large"> <span class="close-btn">&times;</span>
                 <h2>문의 내역 확인</h2>
                 <div id="qnaTableFragment" th:fragment="qnaTableFragment">
                     <div class="reply-table-wrapper">
@@ -112,24 +112,44 @@
                                 <th class="center" style="width: 15%;">문의사항 확인</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="qna-accordion-body">
                                 <tr th:if="${qnaList.isEmpty()}">
                                     <td colspan="5">작성한 문의 내역이 없습니다.</td>
                                 </tr>
-                                <tr th:each="qna, stat : ${qnaList}">
-                                    <td th:text="${qnaPage.totalElements - (qnaPage.number * qnaPage.size + stat.index)}" class="center">1</td>
-                                    <td class="qna-title center" th:text="${qna.title}"></td>
-                                    <td th:text="${#temporals.format(qna.regDate, 'yyyy-MM-dd')}" class="center"></td>
-                                    <td>
-                                    <span class="status-badge center"
-                                          th:text="${qna.questionStatus.displayName}"
-                                          th:classappend="${qna.questionStatus.name() == 'YES'} ? 'status-completed' : 'status-pending'">
-                                    </span>
-                                    </td>
-                                    <td>
-                                        <button class="details-btn" th:data-qna-id="${qna.questionId}">상세보기</button>
-                                    </td>
-                                </tr>
+                                <th:block th:each="qna, stat : ${qnaList}">
+                                    <tr th:each="qna, stat : ${qnaList}">
+                                        <td th:text="${qnaPage.totalElements - (qnaPage.number * qnaPage.size + stat.index)}" class="center"></td>
+                                        <td class="qna-title center" th:text="${qna.title}"></td>
+                                        <td th:text="${#temporals.format(qna.regDate, 'yyyy-MM-dd')}" class="center"></td>
+                                        <td>
+                                        <span class="status-badge center"
+                                              th:text="${qna.questionStatus.displayName}"
+                                              th:classappend="${qna.questionStatus.name() == 'YES'} ? 'status-completed' : 'status-pending'">
+                                        </span>
+                                        </td>
+                                        <td>
+                                            <button class="details-btn" th:data-qna-id="${qna.questionId}">상세보기</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="qna-detail-row" th:id="'qna-detail-' + ${qna.questionId}">
+                                        <td colspan="5">
+                                            <div class="qna-detail-content">
+                                                <div class="question-section">
+                                                    <h4>Q. 질문 내용</h4>
+                                                    <p th:text="${qna.content}"></p>
+                                                </div>
+                                                <div class="answer-section" th:if="${qna.answerContent != null}">
+                                                    <h4>A. 관리자 답변</h4>
+                                                    <p th:text="${qna.answerContent}"></p>
+                                                </div>
+                                                <div class="answer-section" th:if="${qna.answerContent == null}">
+                                                    <h4>A. 관리자 답변</h4>
+                                                    <p class="no-answer">아직 등록된 답변이 없습니다.</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </th:block>
                             </tbody>
                         </table>
                     </div>

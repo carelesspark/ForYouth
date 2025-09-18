@@ -388,7 +388,44 @@ body {
     text-align: center;
 }
 
+.qna-detail-row {
+    display: none;
+}
 
+.qna-detail-row.active {
+    display: table-row;
+}
+
+.qna-detail-content {
+    padding: 20px 30px;
+    text-align: left;
+    background-color: #f8f9fa;
+    border-top: 2px solid #e9ecef;
+}
+
+.qna-detail-content h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #007bff;
+    font-size: 15px;
+}
+
+.qna-detail-content p {
+    line-height: 1.7;
+    margin-top: 0;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.answer-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #ced4da;
+}
+
+.no-answer {
+    color: #868e96;
+}
 
 
 .pagination {
