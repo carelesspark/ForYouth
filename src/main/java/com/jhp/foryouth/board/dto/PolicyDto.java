@@ -7,15 +7,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PolicyDto {
-    @JsonProperty("bizId")
+    @JsonProperty("plcyNo")
     private String policyId;
 
-    @JsonProperty("polyBiz")
+    @JsonProperty("plcyNm")
     private String title;
 
-    @JsonProperty("polyItcnCn")
+    @JsonProperty("plcyExplnCn")
     private String content;
 
-    @JsonProperty("rqutUrla")
+    @JsonProperty("aplyUrlAddr")
     private String url;
 }
